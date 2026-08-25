@@ -1,0 +1,72 @@
+<?php
+session_start();
+include('db.php');
+
+if (
+    isset($_POST['amt']) && isset($_POST['name']) &&
+    isset($_POST['phone']) && isset($_POST['email']) &&
+    isset($_POST['pan'])
+) {
+
+    $payment_id = $_POST['payment_id'];
+
+    $amt = $_POST['amt'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $pan = $_POST['pan'];
+    $donar_age = $_POST['age'];
+    $donar_city = $_POST['city'];
+    $donar_hear = $_POST['donar_hear'];
+
+    // Extra values (please define these)
+    $date = date("d-m-Y");
+    $social_link = "#";
+    $website_link = "https://swadesfoundation.org";
+    $contact_email = "contact.us@swadesfoundation.org";
+    $contact_phone = "+91-9999999999";
+
+    // -------------------------
+    // EMAIL CONTENT
+    // -------------------------
+    $subject = "Thank You for Your Generous Support!";
+
+    $message = "
+        Dear $name,<br><br>
+        
+        We are deeply grateful for your contribution of <strong>₹ $amt</strong> to <strong>Swades Foundation</strong>. 
+        Your support is empowering rural communities.<br><br>
+        
+        <strong>Your Donation Details:</strong><br>
+        Donation Amount: ₹ $amt<br>
+        Transaction ID: $payment_id<br>
+        Date: $date<br><br>
+
+        Should you have any questions, feel free to reach out at 
+        <a href='mailto:$contact_email'>$contact_email</a>.<br><br>
+
+        Warm regards,<br>
+        <strong>The Swades Foundation Team</strong>
+    ";
+
+    // -------------------------
+    // EMAIL HEADERS
+    // -------------------------
+    $headers  = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8\r\n";
+
+    // From Header (Brand Name Show Karega)
+    $headers .= "From: Swades Foundation <no.reply@swadesfoundation.org>\r\n";
+
+    // -------------------------
+    // SEND EMAIL
+    // -------------------------
+    if (mail($email, $subject, $message, $headers)) {
+        echo "Email sent successfully";
+    } else {
+        echo "Email sending failed!";
+    }
+} else {
+    echo "Invalid Request";
+}
+?>

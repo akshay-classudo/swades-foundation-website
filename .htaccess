@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteRule ^robots\.txt$ robots.php [L,QSA]
+RewriteRule ^sitemap\.xml$ sitemap.php [L,QSA]
+
+# Render published CMS pages without competing with existing PHP page URLs.
+RewriteRule ^page/([A-Za-z0-9_-]+)$ page.php?slug=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([A-Za-z0-9_\-\/]+)$ $1.php [L,QSA]

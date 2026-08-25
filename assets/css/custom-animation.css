@@ -1,0 +1,4 @@
+/* Shared animation hooks used by the page templates. */
+[data-aos] {
+  transition-property: transform, opacity;
+}

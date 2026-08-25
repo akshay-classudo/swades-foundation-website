@@ -88,7 +88,8 @@ function cms_asset_url(?string $path): ?string
     }
 
     if (strpos($normalized, 'assets/') === 0) {
-        return './' . $normalized;
+        // CMS-managed website assets are served from Laravel public storage.
+        return CMS_PUBLIC_URL . '/storage/' . $normalized;
     }
 
     if (strpos($normalized, 'storage/') === 0) {

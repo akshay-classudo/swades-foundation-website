@@ -628,7 +628,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="empowered-werap overcolor3">
         <div class="empowe-cnt">
-          <span class="heading6">Water & Sanitation</span>
+          <span class="heading6">Water, Sanitation & Green Initiatives</span>
           <h6>Defeating Cancer: A Comprehensive Guide to Prevention and Treatment</h6>
           <p>How our water management initiatives helped a village overcome drought conditions.</p>
           <a href="#" class="readmore">Read impact story <img src="./assets/images/arrow-right.svg" alt=""></a>

@@ -115,7 +115,7 @@ $reportCategories = [
         <ul class="nav nav-pills" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link " id="pills-Sanitation-tab" data-bs-toggle="pill" data-bs-target="#pills-Sanitation"
-              type="button" role="tab" aria-controls="pills-Sanitation" aria-selected="true">Water & Sanitation</button>
+              type="button" role="tab" aria-controls="pills-Sanitation" aria-selected="true">Water, Sanitation & Green Initiatives</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-Health-tab" data-bs-toggle="pill" data-bs-target="#pills-Health"

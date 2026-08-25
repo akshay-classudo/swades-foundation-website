@@ -20,7 +20,7 @@ $cmsStoryFallbacks = [
 ];
 $cmsStories = !empty($cmsHomePosts) ? array_slice($cmsHomePosts, 0, 5) : $cmsStoryFallbacks;
 $cmsWorkCards = $cmsHomepageSettings['work_cards'] ?? [
-  ['slug' => 'water-and-sanitation', 'image' => './assets/images/water.svg', 'title' => 'Water & Sanitation', 'description' => 'Facilitating access to drinking water, and individual toilets at home.', 'button' => 'water-and-sanitation', 'alt' => 'Water & Sanitation'],
+  ['slug' => 'water-and-sanitation', 'image' => './assets/images/water.svg', 'title' => 'Water, Sanitation & Green Initiatives', 'description' => 'Facilitating access to drinking water, and individual toilets at home.', 'button' => 'water-and-sanitation', 'alt' => 'Water, Sanitation & Green Initiatives'],
   ['slug' => 'health', 'image' => './assets/images/2.png', 'title' => 'Health', 'description' => 'Fostering health-seeking behaviour and access to primary healthcare', 'button' => 'health', 'alt' => 'Health'],
   ['slug' => 'educations', 'image' => './assets/images/education2.svg', 'title' => 'Education', 'description' => 'Creating joyful centres of learning', 'button' => 'educations', 'alt' => 'Education'],
   ['slug' => 'ecomonic-development', 'image' => './assets/images/economic.svg', 'title' => 'Economic Development', 'description' => 'Empowering through diversified livelihoods', 'button' => 'ecomonic-development', 'alt' => 'Economic Development'],
@@ -523,7 +523,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link " id="pills-Sanitation-tab" data-bs-toggle="pill" data-bs-target="#pills-Sanitation"
-              type="button" role="tab" aria-controls="pills-Sanitation" aria-selected="true">Water & Sanitation</button>
+              type="button" role="tab" aria-controls="pills-Sanitation" aria-selected="true">Water, Sanitation & Green Initiatives</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-Health-tab" data-bs-toggle="pill" data-bs-target="#pills-Health" type="button" role="tab" aria-controls="pills-Health" aria-selected="false">Health</button>
@@ -543,7 +543,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <button class="nav-link" id="pills-Leadership-tab" data-bs-toggle="pill" data-bs-target="#pills-Leadership" type="button" role="tab" aria-controls="pills-Leadership" aria-selected="false">Community Leadership & Institution Building</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link " id="pills-Sanitation-tab" data-bs-toggle="pill" data-bs-target="#pills-Sanitation" type="button" role="tab" aria-controls="pills-Sanitation" aria-selected="true">Water & Sanitation</button>
+            <button class="nav-link " id="pills-Sanitation-tab" data-bs-toggle="pill" data-bs-target="#pills-Sanitation" type="button" role="tab" aria-controls="pills-Sanitation" aria-selected="true">Water, Sanitation & Green Initiatives</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-Health-tab" data-bs-toggle="pill" data-bs-target="#pills-Health" type="button" role="tab" aria-controls="pills-Health" aria-selected="false">Health</button>

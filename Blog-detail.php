@@ -62,7 +62,7 @@ $blogShareLink = rawurlencode($blogShareUrl);
               <li class="nav-item"><a href="#"><span> Our Work </span>
                   <i class="fas fa-angle-down toggle-dropdown rotate"></i></a>
                 <ul class="dropdown">
-                  <li><a href="work-water-sanitation.php">Water and Sanitation</a></li>
+                  <li><a href="work-water-sanitation.php">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="work-health.php">Health</a></li>
                   <li><a href="work-education.php">Education</a></li>
                   <li><a href="Work-Ecomonic-Development.php">Economic Development</a></li>

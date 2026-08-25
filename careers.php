@@ -525,9 +525,9 @@ $cmsJobs = cms_get_jobs();
               </ul>
             </li>
 
-            <li>Water & Sanitation
+            <li>Water, Sanitation & Green Initiatives
               <ul>
-                <li>Identify drinking water and sanitation needs.</li>
+                <li>Identify drinking Water, Sanitation & Green Initiatives needs.</li>
                 <li>Implement schemes with Gram Vikas Samiti.</li>
               </ul>
             </li>
@@ -656,9 +656,9 @@ $cmsJobs = cms_get_jobs();
               </ul>
             </li>
 
-            <li>Water & Sanitation
+            <li>Water, Sanitation & Green Initiatives
               <ul>
-                <li>Identify drinking water and sanitation needs.</li>
+                <li>Identify drinking Water, Sanitation & Green Initiatives needs.</li>
                 <li>Implement schemes with Gram Vikas Samiti.</li>
               </ul>
             </li>
@@ -787,9 +787,9 @@ $cmsJobs = cms_get_jobs();
               </ul>
             </li>
 
-            <li>Water & Sanitation
+            <li>Water, Sanitation & Green Initiatives
               <ul>
-                <li>Identify drinking water and sanitation needs.</li>
+                <li>Identify drinking Water, Sanitation & Green Initiatives needs.</li>
                 <li>Implement schemes with Gram Vikas Samiti.</li>
               </ul>
             </li>
@@ -918,9 +918,9 @@ $cmsJobs = cms_get_jobs();
               </ul>
             </li>
 
-            <li>Water & Sanitation
+            <li>Water, Sanitation & Green Initiatives
               <ul>
-                <li>Identify drinking water and sanitation needs.</li>
+                <li>Identify drinking Water, Sanitation & Green Initiatives needs.</li>
                 <li>Implement schemes with Gram Vikas Samiti.</li>
               </ul>
             </li>
@@ -1049,9 +1049,9 @@ $cmsJobs = cms_get_jobs();
               </ul>
             </li>
 
-            <li>Water & Sanitation
+            <li>Water, Sanitation & Green Initiatives
               <ul>
-                <li>Identify drinking water and sanitation needs.</li>
+                <li>Identify drinking Water, Sanitation & Green Initiatives needs.</li>
                 <li>Implement schemes with Gram Vikas Samiti.</li>
               </ul>
             </li>

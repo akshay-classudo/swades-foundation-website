@@ -36,7 +36,7 @@ $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty 
             <div class="ftr-menu">
               <h5>Our Work</h5>
               <ul>
-                <li><a href="water-and-sanitation">Water and Sanitation</a></li>
+                <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                 <li><a href="health">Health</a></li>
                 <li><a href="educations">Education</a></li>
                 <li><a href="ecomonic-development">Economic Development</a></li>

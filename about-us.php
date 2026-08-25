@@ -231,7 +231,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <?php else: ?>
           <h2>Empowering Rural India, Together</h2>
           <p>Swades Foundation is a community-driven non-profit working with a singular aim of lifting a million lives out of poverty every 5 years in rural India. Our motto – Swa Se Bane Des – asserts the belief that every person has the power to transform themselves, their country and the world. </p>
-          <p>We build ambition, ignite hope, and empower communities to take charge of their own journey through a unique holistic model of development, in Water and Sanitation, Health, Education, and Livelihoods.</p>
+          <p>We build ambition, ignite hope, and empower communities to take charge of their own journey through a unique holistic model of development, in Water, Sanitation & Green Initiatives, Health, Education, and Livelihoods.</p>
           <p>At the heart of our mission is nurturing community leadership and ownership to ensure deep, sustainable, long-term empowerment. With over 11,000 community volunteers and 270+ full-time staff—predominantly working at the grassroots level—Swades Foundation has the execution capability to drive impactful change.</p>
         <?php endif; ?>
       </div>
@@ -270,7 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>An empowered and poverty-free rural India where communities are capable of transforming their own lives.</p>
 
             <h5>Our Mission:</h5>
-            <p>To lift a million people out of poverty in rural India every 5 years through a holistic approach to Health, Education, Water & Sanitation, and Economic Development - by creating a scalable, replicable and community-centric model of sustainable development.</p>
+            <p>To lift a million people out of poverty in rural India every 5 years through a holistic approach to Health, Education, Water, Sanitation & Green Initiatives, and Economic Development - by creating a scalable, replicable and community-centric model of sustainable development.</p>
 
 
             <h5>Our Philosophy:</h5>

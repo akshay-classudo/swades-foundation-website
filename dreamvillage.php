@@ -203,7 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="swades-cover">
           <div class="proper-content">
             <h4>Sakshar</h4>
-            <p>Every child under the age of 16 has access to a quality and joyful learning environment and each school has functional water and sanitation facilities, ensuring that children and especially girls, do not drop out of school.</p>
+            <p>Every child under the age of 16 has access to a quality and joyful learning environment and each school has functional Water, Sanitation & Green Initiatives facilities, ensuring that children and especially girls, do not drop out of school.</p>
           </div>
           <div class="swades-img">
             <img src="./assets/images/sakshar-literate.svg" alt="">
@@ -268,7 +268,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="swades-cover">
           <div class="proper-content">
             <h4>Sakshar</h4>
-            <p>Every child under the age of 16 has access to a quality and joyful learning environment and each school has functional water and sanitation facilities, ensuring that children and especially girls, do not drop out of school.</p>
+            <p>Every child under the age of 16 has access to a quality and joyful learning environment and each school has functional Water, Sanitation & Green Initiatives facilities, ensuring that children and especially girls, do not drop out of school.</p>
           </div>
           <div class="swades-img">
             <img src="./assets/images/sakshar-literate.svg" alt="">

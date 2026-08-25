@@ -116,7 +116,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li class="nav-item"><a href="#"><span> Our Work </span>
                   <i class="fas fa-angle-down toggle-dropdown rotate"></i></a>
                 <ul class="dropdown">
-                  <li><a href="water-and-sanitation">Water and Sanitation</a></li>
+                  <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
                   <li><a href="ecomonic-development">Economic Development</a></li>
@@ -196,16 +196,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <option value="1">Education</option>
                     <option value="2">Health</option>
                     <option value="3">Economic Development</option>
-                    <option value="4">Water & Sanitation</option>
+                    <option value="4">Water, Sanitation & Green Initiatives</option>
                 </select>-->
                 <select class="form-select form-control" name="cause" aria-label="Default select example">
                     <option value="1" <?= ($selected == 1) ? 'selected' : '' ?>>Education</option>
                     <option value="2" <?= ($selected == 2) ? 'selected' : '' ?>>Health</option>
                     <option value="3" <?= ($selected == 3) ? 'selected' : '' ?>>Economic Development</option>
                     <option value="4" <?= ($selected == 4) ? 'selected' : '' ?>>Water, Sanitation & Green Initiatives</option>
-                     <option value="5" <?= ($selected == 5) ? 'selected' : '' ?>>Swades Dream Village</option>
-                    
-                    
+                     <option value="5" <?= ($selected == 5) ? 'selected' : '' ?>>Swades Dream Village</option>  
                 </select>
               </div>
             </div>
@@ -391,7 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="ftr-menu">
               <h5>Our Work</h5>
               <ul>
-                <li><a href="work-water-sanitation">Water and Sanitation</a></li>
+                <li><a href="work-water-sanitation">Water, Sanitation & Green Initiatives</a></li>
                 <li><a href="work-health">Health</a></li>
                 <li><a href="work-education">Education</a></li>
                 <li><a href="Work-Ecomonic-Development">Economic Development</a></li>

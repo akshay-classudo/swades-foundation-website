@@ -199,7 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <?php else: ?>
           <p>Founded by Ronnie & Zarina Screwvala, we operate with a single-minded focus of lifting 1 million rural Indians out of poverty every 5 years through community-driven change. We bring together the best global practices, corporate thinking /accountability and highest standards of corporate governance to create a model of sustainable development, which is an industry benchmark and replicable at scale.</p>
 
-              <p>Our USP is a 360° intervention inside-out model of development,with a multiplier effect. Our holistic approach covers all aspects of individual and community development through 4 key verticals – Health & Nutrition, Education, Water & Sanitation and Economic Development. Our strength is our strong team comprising 10,000+ community volunteers and 270+ full time staff(FTE specialists & professionals); 90% FTE work at the grassroots, making us a strong execution foundation.</p>
+              <p>Our USP is a 360° intervention inside-out model of development,with a multiplier effect. Our holistic approach covers all aspects of individual and community development through 4 key verticals – Health & Nutrition, Education, Water, Sanitation & Green Initiatives and Economic Development. Our strength is our strong team comprising 10,000+ community volunteers and 270+ full time staff(FTE specialists & professionals); 90% FTE work at the grassroots, making us a strong execution foundation.</p>
 
               <p>In 11+ years, we have reached out to 3,540 hamlets across Raigad and Nashik districts of Maharashtra, with an estimated population of 11,82,797 (1.1 million) . Out of these 6,00,000+ (more than half a million) individuals have benefitted directly from one or more of our programmes. We are currently working in 7 blocks (Mahad, Mangaon, Mhasla, Poladpur, Shrivardhan, Tala & Sudhagad) of Raigad and 4 blocks of Nashik (Igatpuri, Trimbakeshwar, Surgana & Peth). We have recently expanded into five new blocks across three districts - Jawhar and Mokhada in Palghar, Shahpur in Thane, and Akkalkuwa in Nandurbar apart from Kalwan and Dindori in Nashik. We have begun work in these regions and are currently in the initial phase of development interventions.</p>
             <?php endif; ?>
@@ -312,7 +312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <button class="accordion-button collapsed section-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <div class="accordion-header-custom">
                   <div class="accordion-left">
-                    <h3 class="hdeducation"><span>Water and Sanitation</span></h3>
+                    <h3 class="hdeducation"><span>Water, Sanitation & Green Initiatives</span></h3>
                     <p>In schools, we strengthen WASH infrastructure by providing safe drinking water, hand-washing facilities, and separate toilets for girls and boys—creating a healthy, inclusive environment conducive to learning.</p>
                   </div>
   

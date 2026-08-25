@@ -141,7 +141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="inner-hd text-center">
         <h2>Climate Action</h2>
         <p>A truly holistic approach to development naturally includes climate action and environmental sustainability.
-          At Swades, we integrate climate thinking into everything we do — from water and sanitation to agriculture and
+          At Swades, we integrate climate thinking into everything we do — from Water, Sanitation & Green Initiatives to agriculture and
           livelihoods — ensuring that our programmes lead to positive climate outcomes. Our goal is to support rural
           communities adapt to the changing climates, reduce environmental footprint, and drive climate justice at the
           grassroots, creating a more just and sustainable future for all.</p>
@@ -391,7 +391,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="empowered-werap overcolor">
         <div class="empowe-cnt">
-          <span class="heading6">Water & Sanitation</span>
+          <span class="heading6">Water, Sanitation & Green Initiatives</span>
           <h6>Defeating Cancer: A Comprehensive Guide to Prevention and Treatment</h6>
           <p>How our water management initiatives helped a village overcome drought conditions.</p>
           <a href="#" class="readmore">Read impact story <img src="./assets/images/arrow-right.svg" alt=""></a>

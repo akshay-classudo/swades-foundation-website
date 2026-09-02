@@ -105,6 +105,16 @@ $blogPosts = cms_get_posts();
       line-height: 1.5;
     }
 
+    .featured-card.text-center,
+    .featured-card.text-center h5,
+    .featured-card.text-center p {
+      letter-spacing: normal !important;
+      word-spacing: normal !important;
+      white-space: normal !important;
+      word-break: normal !important;
+      overflow-wrap: break-word !important;
+    }
+
     .read-more {
       margin-top: auto;
       text-decoration: none;

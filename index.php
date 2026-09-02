@@ -2,7 +2,6 @@
 <?php
 $cmsSite = cms_get_site_settings();
 $cmsStats = cms_get_impact_stats();
-$cmsHomePosts = cms_get_posts(5);
 $cmsHomePage = cms_get_page('home');
 cms_require_published_page('home');
 $cmsHomepageSettings = is_array($cmsSite['homepage'] ?? null) ? $cmsSite['homepage'] : [];
@@ -18,7 +17,34 @@ $cmsStoryFallbacks = [
   ['category' => 'Community Leadership and Institution Building', 'title' => 'What\'s in name (plate)?', 'excerpt' => 'When empowerment begins at the doorstep', 'link' => 'what-is-name-plate', 'image' => './assets/images/home/community-empowerment.png', 'category_class' => ''],
   ['category' => 'Water & Sanitisation', 'title' => 'How access to water transformed life in Chachkond', 'excerpt' => 'When clean water flows home, hope and opportunity follow', 'link' => 'sagibai-maruti-mahable', 'image' => './assets/images/home/watsan.png', 'category_class' => 'colorbg2'],
 ];
-$cmsStories = !empty($cmsHomePosts) ? array_slice($cmsHomePosts, 0, 5) : $cmsStoryFallbacks;
+$cmsStoryDefinitions = [
+  ['slug' => 'aarti-sudhir-pawar', 'alternate_slug' => 'aarti-sudhir-pawar-2', 'fallback_index' => 0],
+  ['slug' => 'aspiration-to-achievement', 'fallback_index' => 1],
+  ['slug' => 'sweet-homecoming', 'fallback_index' => 2],
+  ['slug' => 'sagibai-maruti-mahable', 'fallback_index' => 4],
+];
+$cmsStories = [];
+foreach ($cmsStoryDefinitions as $storyDefinition) {
+  $fallback = $cmsStoryFallbacks[$storyDefinition['fallback_index']];
+  $story = cms_get_post($storyDefinition['slug']);
+  if (!$story && !empty($storyDefinition['alternate_slug'])) {
+    $story = cms_get_post($storyDefinition['alternate_slug']);
+  }
+
+  if ($story) {
+    // Keep the live homepage's curated presentation while the CMS owns the detail content.
+    $story['homepage_title'] = $fallback['title'];
+    $story['homepage_excerpt'] = $fallback['excerpt'];
+    $story['homepage_category'] = $fallback['category'];
+    $story['homepage_fallback_image'] = $fallback['image'];
+    $story['homepage_fallback_link'] = $fallback['link'];
+    $story['fallback_index'] = $storyDefinition['fallback_index'];
+    $cmsStories[] = $story;
+  } else {
+    $fallback['fallback_index'] = $storyDefinition['fallback_index'];
+    $cmsStories[] = $fallback;
+  }
+}
 $cmsWorkCards = $cmsHomepageSettings['work_cards'] ?? [
   ['slug' => 'water-and-sanitation', 'image' => './assets/images/water.svg', 'title' => 'Water, Sanitation & Green Initiatives', 'description' => 'Facilitating access to drinking water, and individual toilets at home.', 'button' => 'water-and-sanitation', 'alt' => 'Water, Sanitation & Green Initiatives'],
   ['slug' => 'health', 'image' => './assets/images/2.png', 'title' => 'Health', 'description' => 'Fostering health-seeking behaviour and access to primary healthcare', 'button' => 'health', 'alt' => 'Health'],

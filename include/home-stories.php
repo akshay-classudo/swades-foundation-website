@@ -6,15 +6,16 @@
     <?php foreach (($cmsStories ?? []) as $index => $story): ?>
       <?php
         $fallbacks = $cmsStoryFallbacks ?? [];
-        $fallback = $fallbacks[$index] ?? ($fallbacks ? $fallbacks[array_key_last($fallbacks)] : []);
-        $storyTitle = $story['title'] ?? ($fallback['title'] ?? '');
-        $storyExcerpt = $story['excerpt'] ?? ($fallback['excerpt'] ?? '');
-        $storyCategory = $story['category'] ?? ($fallback['category'] ?? '');
+        $fallbackIndex = $story['fallback_index'] ?? $index;
+        $fallback = $fallbacks[$fallbackIndex] ?? ($fallbacks ? $fallbacks[array_key_last($fallbacks)] : []);
+        $storyTitle = $story['homepage_title'] ?? ($story['title'] ?? ($fallback['title'] ?? ''));
+        $storyExcerpt = $story['homepage_excerpt'] ?? ($story['excerpt'] ?? ($fallback['excerpt'] ?? ''));
+        $storyCategory = $story['homepage_category'] ?? ($story['category'] ?? ($fallback['category'] ?? ''));
         $storyImagePath = $story['featured_image'] ?? ($fallback['image'] ?? './assets/images/Blogs/Intersect.jpg');
-        $storyImageFallback = !empty($story['featured_image']) ? cms_blog_image($story, $fallback['image'] ?? './assets/images/Blogs/Intersect.jpg') : ($fallback['image'] ?? './assets/images/Blogs/Intersect.jpg');
+        $storyImageFallback = !empty($story['featured_image']) ? cms_blog_image($story, $story['homepage_fallback_image'] ?? ($fallback['image'] ?? './assets/images/Blogs/Intersect.jpg')) : ($story['homepage_fallback_image'] ?? ($fallback['image'] ?? './assets/images/Blogs/Intersect.jpg'));
         $storyImage = cms_media_src((string) $storyImagePath, $storyImageFallback);
         $storyAlt = cms_media_alt((string) $storyImagePath, $storyTitle !== '' ? $storyTitle : 'Impact story image');
-        $storyLink = !empty($story['slug']) ? 'Blog-detail.php?slug=' . rawurlencode($story['slug']) : ($fallback['link'] ?? '#');
+        $storyLink = !empty($story['slug']) ? 'Blog-detail.php?slug=' . rawurlencode($story['slug']) : ($story['homepage_fallback_link'] ?? ($fallback['link'] ?? '#'));
         $categoryClass = $fallback['category_class'] ?? '';
       ?>
       <div class="empowered-werap">

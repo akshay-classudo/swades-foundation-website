@@ -903,9 +903,19 @@ function cms_seo_settings(): array
         'default_meta_description' => (string) ($settings['default_meta_description'] ?? ''),
         'default_keywords' => (string) ($settings['default_keywords'] ?? ''),
         'default_og_image' => (string) ($settings['default_og_image'] ?? ''),
+        'google_analytics_id' => (string) ($settings['google_analytics_id'] ?? ''),
+        'gtm_container_id' => (string) ($settings['gtm_container_id'] ?? ''),
+        'google_search_console' => (string) ($settings['google_search_console'] ?? ''),
+        'schema_type' => (string) ($settings['schema_type'] ?? 'NGO'),
+        'schema_name' => (string) ($settings['schema_name'] ?? ($settings['site_name'] ?? 'Swades Foundation')),
+        'schema_description' => (string) ($settings['schema_description'] ?? ''),
+        'schema_logo' => (string) ($settings['schema_logo'] ?? ''),
+        'schema_email' => (string) ($settings['schema_email'] ?? ''),
+        'schema_phone' => (string) ($settings['schema_phone'] ?? ''),
+        'schema_url' => (string) ($settings['schema_url'] ?? cms_public_base_url()),
+        'social' => is_array($settings['social'] ?? null) ? $settings['social'] : [],
         'robots_content' => (string) ($seo['robots_content'] ?? ''),
         'sitemap_url' => (string) ($seo['sitemap_url'] ?? rtrim(cms_public_base_url(), '/') . '/sitemap.xml'),
-        'schema_url' => (string) ($seo['schema_url'] ?? cms_public_base_url()),
         'redirects' => is_array($seo['redirects'] ?? null) ? $seo['redirects'] : [],
         'sitemap_enabled' => (bool) ($features['sitemap_enabled'] ?? true),
     ];
@@ -975,6 +985,42 @@ function cms_render_seo_tags(array $context = []): string
         $tags[] = '<meta name="twitter:image" content="' . htmlspecialchars($image, ENT_QUOTES, 'UTF-8') . '">';
     }
 
+    $searchConsole = trim($settings['google_search_console']);
+    if ($searchConsole !== '') {
+        if (preg_match('~content=["\']([^"\']+)["\']~i', $searchConsole, $match)) {
+            $searchConsole = $match[1];
+        }
+        $tags[] = '<meta name="google-site-verification" content="' . htmlspecialchars($searchConsole, ENT_QUOTES, 'UTF-8') . '">';
+    }
+
+    if ($settings['google_analytics_id'] !== '' && preg_match('/^G-[A-Z0-9]+$/i', $settings['google_analytics_id'])) {
+        $measurementId = htmlspecialchars($settings['google_analytics_id'], ENT_QUOTES, 'UTF-8');
+        $tags[] = '<script async src="https://www.googletagmanager.com/gtag/js?id=' . $measurementId . '"></script>';
+        $tags[] = '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","' . $measurementId . '");</script>';
+    }
+
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type' => $settings['schema_type'] ?: 'NGO',
+        'name' => $settings['schema_name'] ?: $settings['site_name'],
+        'url' => $settings['schema_url'],
+    ];
+    foreach (['description' => 'schema_description', 'logo' => 'schema_logo', 'email' => 'schema_email', 'telephone' => 'schema_phone'] as $schemaKey => $settingKey) {
+        if ($settings[$settingKey] !== '') {
+            $schema[$schemaKey] = $settings[$settingKey];
+        }
+    }
+    $sameAs = array_values(array_filter($settings['social'], static fn ($url) => is_string($url) && filter_var($url, FILTER_VALIDATE_URL)));
+    if ($sameAs !== []) {
+        $schema['sameAs'] = $sameAs;
+    }
+    $tags[] = '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . '</script>';
+
+    if ($settings['gtm_container_id'] !== '' && preg_match('/^GTM-[A-Z0-9]+$/i', $settings['gtm_container_id'])) {
+        $containerId = htmlspecialchars($settings['gtm_container_id'], ENT_QUOTES, 'UTF-8');
+        $tags[] = '<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","' . $containerId . '");</script>';
+    }
+
     return implode("\n", $tags) . "\n";
 }
 
@@ -994,6 +1040,17 @@ function cms_frontend_seo_buffer(string $html): string
     $context = cms_seo_context_from_request();
     if ($title !== '' && empty($context['title'])) {
         $context['title'] = $title;
+    }
+
+    // Replace legacy per-page tracking snippets with the CMS-managed values.
+    $tracking = cms_seo_settings();
+    if ($tracking['google_analytics_id'] !== '') {
+        $html = preg_replace('~<script[^>]+src=["\'][^"\']*googletagmanager\.com/gtag/js\?id=[^"\']+["\'][^>]*></script>\s*~i', '', $html) ?: $html;
+        $html = preg_replace('~<script>(?:(?!</script>).)*?function\s+gtag\s*\(\).*?gtag\s*\(\s*["\']config["\'].*?</script>\s*~is', '', $html) ?: $html;
+    }
+    if ($tracking['gtm_container_id'] !== '') {
+        $html = preg_replace('~<script>(?:(?!</script>).)*?googletagmanager\.com/gtm\.js.*?</script>\s*~is', '', $html) ?: $html;
+        $html = preg_replace('~<noscript>\s*<iframe[^>]+googletagmanager\.com/ns\.html\?id=[^>]+></iframe>\s*</noscript>\s*~is', '', $html) ?: $html;
     }
 
     $seoTags = cms_render_seo_tags($context);

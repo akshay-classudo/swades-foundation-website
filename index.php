@@ -23,7 +23,7 @@ $cmsWorkCards = $cmsHomepageSettings['work_cards'] ?? [
   ['slug' => 'water-and-sanitation', 'image' => './assets/images/water.svg', 'title' => 'Water, Sanitation & Green Initiatives', 'description' => 'Facilitating access to drinking water, and individual toilets at home.', 'button' => 'water-and-sanitation', 'alt' => 'Water, Sanitation & Green Initiatives'],
   ['slug' => 'health', 'image' => './assets/images/2.png', 'title' => 'Health', 'description' => 'Fostering health-seeking behaviour and access to primary healthcare', 'button' => 'health', 'alt' => 'Health'],
   ['slug' => 'educations', 'image' => './assets/images/education2.svg', 'title' => 'Education', 'description' => 'Creating joyful centres of learning', 'button' => 'educations', 'alt' => 'Education'],
-  ['slug' => 'ecomonic-development', 'image' => './assets/images/economic.svg', 'title' => 'Economic Development', 'description' => 'Empowering through diversified livelihoods', 'button' => 'ecomonic-development', 'alt' => 'Economic Development'],
+  ['slug' => 'economic-development', 'image' => './assets/images/economic.svg', 'title' => 'Economic Development', 'description' => 'Empowering through diversified livelihoods', 'button' => 'economic-development', 'alt' => 'Economic Development'],
   ['slug' => 'our-approach', 'image' => './assets/images/1.png', 'title' => 'Community Leadership & Institution Building', 'description' => 'Training community volunteers to lead change', 'button' => 'Our-Approach', 'alt' => 'Community Empowerment'],
 ];
 $cmsDreamVillagePage = cms_get_page('dream-village');
@@ -355,19 +355,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="header-menu">
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="/">
-            <img src="./assets/images/sawades-logo.svg" alt="">
+            <img src="<?= htmlspecialchars(cms_media_src('./assets/images/sawades-logo.svg', './assets/images/sawades-logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/sawades-logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>">
           </a>
           <div class="nav-container collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav navmenu mx-auto">
               <?php include __DIR__ . '/include/nav-items.php'; ?>
             </ul>
             <div class="donate-button desktop">
-              <a href="Donate" class="btn">Donate <img src="./assets/images/heart.svg" alt=""></a>
+              <a href="Donate" class="btn">Donate <img src="./assets/images/heart.svg" alt="" aria-hidden="true"></a>
             </div>
           </div>
           <div class="naviconmobile">
             <div class="donate-button mobile">
-              <a href="Donate" class="btn">Donate <img src="./assets/images/heart.svg" alt=""></a>
+              <a href="Donate" class="btn">Donate <img src="./assets/images/heart.svg" alt="" aria-hidden="true"></a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
               <div class="menu-icon">
@@ -386,6 +386,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="video-cover">
             <video id="myvideo" autoplay muted loop playsinline preload="auto">
                 <source src="./assets/videos/homebannervideo.mp4" type="video/mp4">
+                <img src="./assets/images/home-banner2.jpg" alt="Swades Foundation community members working together">
                 Your browser does not support the video tag.
             </video>
           </div>
@@ -504,7 +505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         
         <div class="home-btn text-center logo-img">
-          <img src="./assets/images/home/swasebanedes.svg">
+          <img src="./assets/images/home/swasebanedes.svg" alt="Swades Foundation programme illustration">
         </div>
     </div>
   </div><!---home-section-->
@@ -1205,7 +1206,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="engage-cnt">
           <h5><?= htmlspecialchars($cmsCommunityCard['title'] ?? '', ENT_QUOTES, 'UTF-8') ?></h5>
           <p><?= htmlspecialchars($cmsCommunityCard['description'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
-          <span class="Engage-img"><img src="<?= htmlspecialchars($cmsCommunityCard['image'] ?? '', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsCommunityCard['alt'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></span>
+          <?php
+            $cmsCommunityImagePath = (string) ($cmsCommunityCard['image'] ?? '');
+            $cmsCommunityImage = cms_media_src($cmsCommunityImagePath, $cmsCommunityImagePath);
+            $cmsCommunityAlt = cms_media_alt($cmsCommunityImagePath, (string) ($cmsCommunityCard['alt'] ?? $cmsCommunityCard['title'] ?? 'Community programme illustration'));
+          ?>
+          <span class="Engage-img"><img src="<?= htmlspecialchars($cmsCommunityImage, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsCommunityAlt, ENT_QUOTES, 'UTF-8') ?>"></span>
         </div>
         <?php endforeach; ?>
       </div>

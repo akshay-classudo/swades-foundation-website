@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <?php
 require_once __DIR__ . '/include/cms.php';
 
@@ -65,7 +66,7 @@ $blogShareLink = rawurlencode($blogShareUrl);
                   <li><a href="work-water-sanitation.php">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="work-health.php">Health</a></li>
                   <li><a href="work-education.php">Education</a></li>
-                  <li><a href="Work-Ecomonic-Development.php">Economic Development</a></li>
+                  <li><a href="Work-economic-Development.php">Economic Development</a></li>
                 </ul>
               </li>
 

@@ -100,7 +100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -425,7 +425,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h6> A Dream Village that Turned the Tide</h6>
                 <p>Washi Haveli Koliwada in Mhasla, Raigad, is one of Swades Foundation’s Dream Villages—a picturesque coastal hamlet with one of the most powerful transformation stories to tell. Once burdened by the stench of fishing waste and held back by community apathy, the village was long stigmatized for its unhygienic conditions.
                 </p>
-                <p>But not anymore. Driven by the collective will of its people and a renewed spirit of change, Washi Haveli embraced ‘Swachh’—a key ‘S’ among the 5 that guide Swades’ holistic approach. What followed was nothing short of remarkable: a cleaner, healthier village that not only reclaimed its dignity but also secured an independent ₹10 lakh grant from the government under the Swachh Bharat Mission.
+                <p>But not anymore. Driven by the collective will of its people and a renewed spirit of change, Washi Haveli embraced ‘Swacch’—a key ‘S’ among the 5 that guide Swades’ holistic approach. What followed was nothing short of remarkable: a cleaner, healthier village that not only reclaimed its dignity but also secured an independent ₹10 lakh grant from the government under the Swacch Bharat Mission.
                 </p>
                 <p>From being shunned to being showcased, Washi Haveli Koliwada now stands as a shining example of what’s possible when a community comes together with vision and purpose.</p>
                 <p>Number of Swades Dream Villages Celebrated Till Date – 230 (this number will change constantly) </p>
@@ -469,7 +469,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h6> A Dream Village that Turned the Tide</h6>
                 <p>Washi Haveli Koliwada in Mhasla, Raigad, is one of Swades Foundation’s Dream Villages—a picturesque coastal hamlet with one of the most powerful transformation stories to tell. Once burdened by the stench of fishing waste and held back by community apathy, the village was long stigmatized for its unhygienic conditions.
                 </p>
-                <p>But not anymore. Driven by the collective will of its people and a renewed spirit of change, Washi Haveli embraced ‘Swachh’—a key ‘S’ among the 5 that guide Swades’ holistic approach. What followed was nothing short of remarkable: a cleaner, healthier village that not only reclaimed its dignity but also secured an independent ₹10 lakh grant from the government under the Swachh Bharat Mission.
+                <p>But not anymore. Driven by the collective will of its people and a renewed spirit of change, Washi Haveli embraced ‘Swacch’—a key ‘S’ among the 5 that guide Swades’ holistic approach. What followed was nothing short of remarkable: a cleaner, healthier village that not only reclaimed its dignity but also secured an independent ₹10 lakh grant from the government under the Swacch Bharat Mission.
                 </p>
                 <p>From being shunned to being showcased, Washi Haveli Koliwada now stands as a shining example of what’s possible when a community comes together with vision and purpose.</p>
                 <p>Number of Swades Dream Villages Celebrated Till Date – 230 (this number will change constantly) </p>

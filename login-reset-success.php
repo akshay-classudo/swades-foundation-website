@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <!DOCTYPE html>
 <html>
 

@@ -2,6 +2,12 @@
 require_once __DIR__ . '/cms.php';
 $cmsGlobalSettings = cms_get_site_settings();
 $cmsGlobalSocial = $cmsGlobalSettings['social'] ?? [];
+$cmsGlobalSocial = array_merge([
+    'facebook_url' => 'https://www.facebook.com/SwadesFoundation',
+    'twitter_url' => 'https://twitter.com/WeAreSwades',
+    'instagram_url' => 'https://instagram.com/swadesfoundation',
+    'linkedin_url' => 'https://linkedin.com/company/swades-foundation',
+], $cmsGlobalSocial);
 $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty every five years through community-driven change';
 ?>
 <footer class="footer">
@@ -9,8 +15,8 @@ $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty 
       <div class="row">
         <div class="col-md-6">
           <div class="ftr-logo">
-            <a href="index.php"><img src="./assets/images/ftr_Logo.svg" alt=""></a>
-            <p><?= htmlspecialchars($cmsGlobalSettings['footer_text'] ?? $cmsGlobalSettings['tagline'] ?? $cmsFooterText, ENT_QUOTES, 'UTF-8') ?></p>
+            <a href="index.php"><img src="<?= htmlspecialchars(cms_media_src('./assets/images/ftr_Logo.svg', './assets/images/ftr_Logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/ftr_Logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>"></a>
+            <p><?= htmlspecialchars($cmsGlobalSettings['footer_text'] ?: ($cmsGlobalSettings['tagline'] ?? $cmsFooterText), ENT_QUOTES, 'UTF-8') ?></p>
           </div>
           <div class="social-icon desktop">
             <?php if (!empty($cmsGlobalSocial['facebook_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['facebook_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/facebook.svg" alt="Facebook"></a><?php endif; ?>
@@ -39,7 +45,7 @@ $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty 
                 <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                 <li><a href="health">Health</a></li>
                 <li><a href="educations">Education</a></li>
-                <li><a href="ecomonic-development">Economic Development</a></li>
+                <li><a href="economic-development">Economic Development</a></li>
               </ul>
             </div>
 
@@ -75,7 +81,7 @@ $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty 
       <div class="copyright">
         <div class="row">
           <div class="col-md-6">
-            <p><?= htmlspecialchars(str_replace('%year%', date('Y'), $cmsGlobalSettings['copyright_text'] ?? 'Copyright %year% © Swades Foundation'), ENT_QUOTES, 'UTF-8') ?></p>
+            <p><?= htmlspecialchars(str_replace('%year%', date('Y'), $cmsGlobalSettings['copyright_text'] ?: 'Copyright %year% © Swades Foundation'), ENT_QUOTES, 'UTF-8') ?></p>
           </div>
           <div class="col-md-6">
             <div class="privacy-dlf">

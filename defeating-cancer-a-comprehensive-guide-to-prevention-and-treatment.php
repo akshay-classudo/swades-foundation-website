@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <!DOCTYPE html>
 <html>
 
@@ -83,7 +84,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -205,7 +206,7 @@ The cancer burden continues to grow globally, exerting tremendous physical, emot
             background in community mobilisation, coupled with her love for communication, made her decision to join
             Swades Foundation as a Gyan Mitra a natural choice.</p>
 
-          <p>Indraja’s previous work with the Panlot programme and the Swachh Bharat Mission – Phase 2 provided her with
+          <p>Indraja’s previous work with the Panlot programme and the Swacch Bharat Mission – Phase 2 provided her with
             valuable skills in organising, training, and engaging with communities. It gave her the opportunity to
             conduct training sessions across five talukas, which further strengthened her expertise in these areas.</p>
 

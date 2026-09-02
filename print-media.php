@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <?php
 require_once __DIR__ . '/include/cms.php';
 $cmsPrintMedia = cms_get_media_coverage('print');
@@ -131,7 +132,7 @@ $cmsPrintMedia = cms_get_media_coverage('print');
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -265,12 +266,12 @@ $cmsPrintMedia = cms_get_media_coverage('print');
 
               <div class="featured-card print-media-card">
                 <div class="blog-img">
-                  <a href="./assets/images/Blogs/print-media/swachhta-doot.jpeg"  target="_blank">
-                    <img src="./assets/images/Blogs/print-media/swachhta-doot.jpeg" alt="" ></a>
+                  <a href="./assets/images/Blogs/print-media/Swacchta-doot.jpeg"  target="_blank">
+                    <img src="./assets/images/Blogs/print-media/Swacchta-doot.jpeg" alt="" ></a>
                 </div>
                 <div class="blog-content">
                   <br />
-                  <a href="./assets/images/Blogs/print-media/swachhta-doot.jpeg" target="_blank" class="read-more">View Article <img
+                  <a href="./assets/images/Blogs/print-media/Swacchta-doot.jpeg" target="_blank" class="read-more">View Article <img
                       src="./assets/images/Blogs/right-arrow.svg" alt=""></a>
                 </div>
               </div>

@@ -16,7 +16,12 @@
         ?>
         <div class="ourwork-card">
           <div class="img-wrap">
-            <img src="<?= htmlspecialchars($cmsWorkCard['image'] ?? '', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsWorkCard['alt'] ?? $cmsWorkTitle, ENT_QUOTES, 'UTF-8') ?>" />
+            <?php
+              $cmsWorkImagePath = (string) ($cmsWorkCard['image'] ?? '');
+              $cmsWorkImage = cms_media_src($cmsWorkImagePath, $cmsWorkImagePath);
+              $cmsWorkAlt = cms_media_alt($cmsWorkImagePath, (string) ($cmsWorkCard['alt'] ?? $cmsWorkTitle));
+            ?>
+            <img src="<?= htmlspecialchars($cmsWorkImage, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsWorkAlt, ENT_QUOTES, 'UTF-8') ?>" />
           </div>
           <div class="ourwork-text">
             <span>

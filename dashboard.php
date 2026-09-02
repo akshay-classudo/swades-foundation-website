@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <?php
 include 'db.php';
 if(!isset($_SESSION['user_id'])){

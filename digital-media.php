@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <?php
 require_once __DIR__ . '/include/cms.php';
 $cmsDigitalMedia = cms_get_media_coverage('digital');
@@ -135,7 +136,7 @@ $cmsDigitalMedia = cms_get_media_coverage('digital');
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -427,7 +428,7 @@ $cmsDigitalMedia = cms_get_media_coverage('digital');
             <div class="blog-content">
               <small>14/02/2025</small>
               <img src="./assets/images/Blogs/logo-cnbc.png" class="news-logo">
-              <p>A Ground Report On Ronnie & Zarine Screwvala's Swades Foundation & How It's Empowering Rural India</p>
+              <p>A Ground Report On Ronnie & Zarina Screwvala's Swades Foundation & How It's Empowering Rural India</p>
               <br />
               <a href="https://www.youtube.com/watch?v=3ZyrL-OOgik&t=100s"
                 target="_blank" class="read-more">Read Article <img src="./assets/images/Blogs/right-arrow.svg"

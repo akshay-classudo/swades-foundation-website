@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,6 +58,11 @@
             font-size:18px;
             color:#FFFFFF;
             line-height:1.8;
+            letter-spacing:normal;
+            word-spacing:normal;
+            white-space:normal;
+            word-break:normal;
+            overflow-wrap:break-word;
             margin-bottom:35px;
         }
 
@@ -162,3 +168,4 @@
 
 </body>
 </html>
+<?php require_once __DIR__ . '/include/cms.php'; ?>

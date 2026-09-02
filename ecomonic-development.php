@@ -1,6 +1,6 @@
-<?php 
-include 'db.php';
-require_once __DIR__ . '/include/cms.php';
+<?php require_once __DIR__ . '/include/cms.php';
+?>
+<?php
 $cmsStats = cms_get_impact_stats();
 $cmsEconomicPage = cms_get_page('economic-development');
 cms_require_published_page('economic-development');
@@ -85,7 +85,7 @@ src="https://www.facebook.com/tr?id=2999132110393698&ev=PageView&noscript=1"
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BR3T5F"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <header id="header" class="home-header ecomonic-header">
+  <header id="header" class="home-header economic-header">
     <div class="container">
       <div class="header-menu">
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -109,7 +109,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -145,13 +145,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </header><!----home-header-->
 
-  <div class="inner-page ecomonic-header">
+  <div class="inner-page economic-header">
     <div class="container">
       <div class="inner-hd text-center">
         <?php if ($cmsEconomicContent !== ''): ?>
           <?= $cmsEconomicContent ?>
         <?php else: ?>
-          <h2>Ecomonic Development</h2>
+          <h2>economic Development</h2>
           <p>Our various livelihoods initiatives aim to ensure that every household earns a minimum annual income of ₹2 lakhs by providing access to diversified and resilient livelihood opportunities.</p>
         <?php endif; ?>
       </div>
@@ -167,7 +167,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="row">
         <div class="col-md-5">
           <div class="aerial-view">
-            <!--<img src="./assets/images/Development/ecomonic-img.svg" alt="">-->
+            <!--<img src="./assets/images/Development/economic-img.svg" alt="">-->
             <video id="myVideo" autoplay muted loop playsinline>
                 <source src="./assets/videos/ED.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -309,7 +309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Swades Mitras, with 1,665 active and serving nearly 4,97,260 people.</p>
           </div>
           <div class="constructed1 rainwater3">
-            <img src="./assets/images/Development/ecomonic1.svg" alt="">
+            <img src="./assets/images/Development/economic1.svg" alt="">
           </div>
         </div>
 
@@ -330,13 +330,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>metric tonnes of waste recycled through community participation</p>
           </div>
           <div class="constructed1">
-            <img src="./assets/images/Development/ecomonic3.svg" alt="">
+            <img src="./assets/images/Development/economic3.svg" alt="">
           </div>
         </div>
 
         <div class="proving-cover covercolor4">
           <div class="constructed1 rainwater3">
-            <img src="./assets/images/Development/ecomonic4.svg" alt="">
+            <img src="./assets/images/Development/economic4.svg" alt="">
           </div>
           <div class="top-content bottom-content">
             <h4>15.25 crore litres</h4>

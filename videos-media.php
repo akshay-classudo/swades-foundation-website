@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <?php
 require_once __DIR__ . '/include/cms.php';
 
@@ -134,7 +135,7 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -204,7 +205,7 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
             </div>
           </div>
           <div class="blog-content yt-title">
-            <p>A Ground Report On Ronnie & Zarine Screwvala's Swades Foundation & How It's Empowering Rural India</p>
+            <p>A Ground Report On Ronnie & Zarina Screwvala's Swades Foundation & How It's Empowering Rural India</p>
           </div>
         </div>
         <div class="featured-card">

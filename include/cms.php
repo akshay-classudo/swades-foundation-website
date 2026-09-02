@@ -24,10 +24,6 @@ if (!defined('CMS_PUBLIC_URL')) {
     define('CMS_PUBLIC_URL', rtrim(getenv('CMS_PUBLIC_URL') ?: 'http://127.0.0.1:8000', '/'));
 }
 
-if (PHP_SAPI !== 'cli' && !ob_get_level()) {
-    ob_start();
-}
-
 function cms_db(): ?PDO
 {
     static $pdo = null;
@@ -458,7 +454,7 @@ function cms_navigation_sections(): array
                 ['label' => 'Water, Sanitation & Green Initiatives', 'url' => 'water-and-sanitation'],
                 ['label' => 'Health', 'url' => 'health'],
                 ['label' => 'Education', 'url' => 'educations'],
-                ['label' => 'Economic Development', 'url' => 'ecomonic-development'],
+                ['label' => 'Economic Development', 'url' => 'economic-development'],
             ],
         ],
         ['label' => 'Swades Dream Village', 'url' => 'dreamvillage'],
@@ -651,6 +647,213 @@ function cms_page_label_from_script(string $script): string
     return trim($label);
 }
 
+function cms_get_media_by_id(int $id): ?array
+{
+    $db = cms_db();
+    if (!$db) {
+        return null;
+    }
+
+    try {
+        $stmt = $db->prepare("SELECT id, name, path, alt, folder FROM media WHERE id = ? LIMIT 1");
+        $stmt->execute([$id]);
+        $media = $stmt->fetch();
+
+        if ($media) {
+            $media['url'] = cms_asset_url($media['path'] ?? null);
+        }
+
+        return $media ?: null;
+    } catch (Throwable $e) {
+        error_log('CMS Error (cms_get_media_by_id): ' . $e->getMessage());
+        return null;
+    }
+}
+
+function cms_get_media_by_name(string $name): ?array
+{
+    $db = cms_db();
+    if (!$db) {
+        return null;
+    }
+
+    try {
+        $stmt = $db->prepare("SELECT id, name, path, alt, folder FROM media WHERE name = ? LIMIT 1");
+        $stmt->execute([$name]);
+        $media = $stmt->fetch();
+
+        if ($media) {
+            $media['url'] = cms_asset_url($media['path'] ?? null);
+        }
+
+        return $media ?: null;
+    } catch (Throwable $e) {
+        error_log('CMS Error (cms_get_media_by_name): ' . $e->getMessage());
+        return null;
+    }
+}
+
+function cms_get_media_by_folder(string $folder, int $limit = 0): array
+{
+    $db = cms_db();
+    if (!$db) {
+        return [];
+    }
+
+    try {
+        $sql = "SELECT id, name, path, alt, folder FROM media WHERE folder = ?";
+        $params = [$folder];
+
+        $sql .= ' ORDER BY id ASC';
+
+        if ($limit > 0) {
+            $sql .= ' LIMIT ' . (int) $limit;
+        }
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute($params);
+
+        $media = $stmt->fetchAll() ?: [];
+        foreach ($media as &$item) {
+            $item['url'] = cms_asset_url($item['path'] ?? null);
+        }
+
+        return $media;
+    } catch (Throwable $e) {
+        error_log('CMS Error (cms_get_media_by_folder): ' . $e->getMessage());
+        return [];
+    }
+}
+
+function cms_get_media_by_path(string $path): ?array
+{
+    static $mediaCache = [];
+    $db = cms_db();
+    if (!$db) {
+        return null;
+    }
+
+    $normalizedPath = ltrim(str_replace('\\', '/', trim($path)), './');
+    if ($normalizedPath === '') {
+        return null;
+    }
+
+    if (array_key_exists($normalizedPath, $mediaCache)) {
+        return $mediaCache[$normalizedPath];
+    }
+
+    try {
+        $stmt = $db->prepare("SELECT id, name, path, alt, folder FROM media WHERE path = ? LIMIT 1");
+        $stmt->execute([$normalizedPath]);
+        $media = $stmt->fetch();
+
+        if ($media) {
+            $media['url'] = cms_asset_url($media['path'] ?? null);
+        }
+
+        $mediaCache[$normalizedPath] = $media ?: null;
+        return $mediaCache[$normalizedPath];
+    } catch (Throwable $e) {
+        error_log('CMS Error (cms_get_media_by_path): ' . $e->getMessage());
+        $mediaCache[$normalizedPath] = null;
+        return null;
+    }
+}
+
+function cms_media_alt(string $path, string $fallback = ''): string
+{
+    static $altCache = [];
+    $normalizedPath = ltrim(str_replace('\\', '/', trim($path)), './');
+
+    if ($normalizedPath === '') {
+        return $fallback;
+    }
+
+    if (!array_key_exists($normalizedPath, $altCache)) {
+        $media = cms_get_media_by_path($normalizedPath);
+        $altCache[$normalizedPath] = trim((string) ($media['alt'] ?? ''));
+    }
+
+    return $altCache[$normalizedPath] !== '' ? $altCache[$normalizedPath] : $fallback;
+}
+
+function cms_media_src(string $path, string $fallback = ''): string
+{
+    static $srcCache = [];
+    $normalizedPath = ltrim(str_replace('\\', '/', trim($path)), './');
+
+    if ($normalizedPath === '') {
+        return $fallback;
+    }
+
+    if (!array_key_exists($normalizedPath, $srcCache)) {
+        $media = cms_get_media_by_path($normalizedPath);
+        $srcCache[$normalizedPath] = $media['url'] ?? '';
+    }
+
+    return $srcCache[$normalizedPath] !== '' ? $srcCache[$normalizedPath] : $fallback;
+}
+
+function cms_media_image_tag(string $path, string $fallbackAlt = '', array $attributes = []): string
+{
+    $src = cms_media_src($path, $path);
+    $alt = cms_media_alt($path, $fallbackAlt);
+
+    if ($src === '') {
+        return '';
+    }
+
+    return cms_image_tag($src, $alt, $attributes);
+}
+
+function cms_image_tag(string $imagePath, string $altText = '', array $attributes = []): string
+{
+    $url = cms_asset_url($imagePath);
+    if (!$url) {
+        return '';
+    }
+
+    $alt = htmlspecialchars($altText ?? '', ENT_QUOTES, 'UTF-8');
+    $class = isset($attributes['class']) ? ' class="' . htmlspecialchars($attributes['class'], ENT_QUOTES, 'UTF-8') . '"' : '';
+    $style = isset($attributes['style']) ? ' style="' . htmlspecialchars($attributes['style'], ENT_QUOTES, 'UTF-8') . '"' : '';
+    $id = isset($attributes['id']) ? ' id="' . htmlspecialchars($attributes['id'], ENT_QUOTES, 'UTF-8') . '"' : '';
+    $width = isset($attributes['width']) ? ' width="' . htmlspecialchars($attributes['width'], ENT_QUOTES, 'UTF-8') . '"' : '';
+    $height = isset($attributes['height']) ? ' height="' . htmlspecialchars($attributes['height'], ENT_QUOTES, 'UTF-8') . '"' : '';
+    $loading = isset($attributes['loading']) ? ' loading="' . htmlspecialchars($attributes['loading'], ENT_QUOTES, 'UTF-8') . '"' : '';
+
+    return '<img src="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '" alt="' . $alt . '"' . $class . $style . $id . $width . $height . $loading . '>';
+}
+
+function cms_frontend_media_buffer(string $html): string
+{
+    return preg_replace_callback(
+        '~<img\b([^>]*?\bsrc=["\'])(\.?/assets/images/[^"\']+)(["\'][^>]*)>~i',
+        static function (array $matches): string {
+            $path = $matches[2];
+            $src = cms_media_src($path, $path);
+            $alt = cms_media_alt($path, '');
+            $attributes = $matches[1] . htmlspecialchars($src, ENT_QUOTES, 'UTF-8') . $matches[3];
+
+            if ($alt !== '') {
+                $escapedAlt = htmlspecialchars($alt, ENT_QUOTES, 'UTF-8');
+                if (preg_match('~\balt=["\'][^"\']*["\']~i', $attributes)) {
+                    $attributes = preg_replace(
+                        '~\balt=["\'][^"\']*["\']~i',
+                        'alt="' . $escapedAlt . '"',
+                        $attributes,
+                        1
+                    );
+                } else {
+                    $attributes .= ' alt="' . $escapedAlt . '"';
+                }
+            }
+
+            return '<img' . $attributes . '>';
+        },
+        $html
+    ) ?: $html;
+}
+
 function cms_seo_settings(): array
 {
     $settings = cms_get_site_settings();
@@ -740,6 +943,8 @@ function cms_render_seo_tags(array $context = []): string
 
 function cms_frontend_seo_buffer(string $html): string
 {
+    $html = cms_frontend_media_buffer($html);
+
     if ($html === '' || stripos($html, '<html') === false || stripos($html, '<head') === false) {
         return $html;
     }
@@ -782,9 +987,8 @@ function cms_boot_frontend_seo(): void
         return;
     }
 
-    if (!ob_get_level()) {
-        ob_start('cms_frontend_seo_buffer');
-    }
+    // Keep our callback active even when PHP or the host has already opened a buffer.
+    ob_start('cms_frontend_seo_buffer');
 }
 
 cms_boot_frontend_seo();

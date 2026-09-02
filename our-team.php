@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <?php
 require_once __DIR__ . '/include/cms.php';
 $cmsTeamMembers = cms_get_team_members();
@@ -98,7 +99,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -158,7 +159,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <?php foreach ($cmsTeamGroups as $cmsDepartment => $cmsMembers): ?>
         <div class="swadesteam">
           <div class="heading-hd">
-            <h2><?= htmlspecialchars($cmsDepartment, ENT_QUOTES, 'UTF-8') ?></h2>
+            <h2><?= htmlspecialchars($cmsDepartment === 'Management' ? 'Swades Team' : $cmsDepartment, ENT_QUOTES, 'UTF-8') ?></h2>
           </div>
         </div>
         <div class="gridlayer5">

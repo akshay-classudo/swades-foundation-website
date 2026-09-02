@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <!DOCTYPE html>
 <html>
 
@@ -83,7 +84,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -154,7 +155,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <p>Infrastructure and funding helped drive visible improvements, but the real transformation was much deeper. As a fishing village, Washihaveli was once stigmatised for the stench of unmanaged fish waste and poor hygiene. So much so that women were reluctant to marry into the community. Today, it stands as a Swades Dream Village.</p>
 
-        <p>On its own initiative, the village secured a 10 lakh grant under the Swachh Bharat Mission and introduced innovations like installing wash basins across households - well beyond what was originally envisioned with Swades. The community had rebuilt its sense of pride and ownership. And this is not the story of just Washihaveli. There are hundreds of such stories across Swades villages in Maharashtra.</p>
+        <p>On its own initiative, the village secured a 10 lakh grant under the Swacch Bharat Mission and introduced innovations like installing wash basins across households - well beyond what was originally envisioned with Swades. The community had rebuilt its sense of pride and ownership. And this is not the story of just Washihaveli. There are hundreds of such stories across Swades villages in Maharashtra.</p>
 
         <p>As expectations for accountability increase, the sector must broaden its definition of impact. We need measurement approaches that capture not just outputs, but outcomes and intent. Because ultimately, the most strategic investment we make is not just in programmes, it is in people.</p>
 

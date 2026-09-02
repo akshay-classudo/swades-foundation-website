@@ -1,7 +1,7 @@
-<?php 
-include 'db.php';
+<?php require_once __DIR__ . '/include/cms.php';
+?>
+<?php
 $_SESSION['health'] = 2;
-require_once __DIR__ . '/include/cms.php';
 $cmsStats = cms_get_impact_stats();
 $cmsHealthPage = cms_get_page('health');
 cms_require_published_page('health');
@@ -242,7 +242,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>

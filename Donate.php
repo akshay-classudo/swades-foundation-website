@@ -1,5 +1,5 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <?php
-include 'db.php';
 require_once __DIR__ . '/include/cms.php';
 $cmsDonatePage = cms_get_page('donate');
 cms_require_published_page('donate');
@@ -49,6 +49,21 @@ $cmsDonateIntro = cms_page_content($cmsDonatePage);
     word-spacing:0 !important;
     font-family:inherit !important;
     line-height:inherit !important;
+}
+
+/* CMS copy must retain normal word separation and wrapping. */
+.donate-intro,
+.donate-intro * {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
 }
   </style>
   <!-- Google Tag Manager -->
@@ -119,7 +134,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -179,7 +194,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!--<h3>Donate and fuel a child’s future with education</h3>-->
         <h3><?= htmlspecialchars(cms_page_field($cmsDonatePage, 'title', 'Be part of India’s rise through community-driven rural transformation')) ?></h3>
         <?php if ($cmsDonateIntro !== ''): ?>
-          <?= $cmsDonateIntro ?>
+          <div class="donate-intro"><?= $cmsDonateIntro ?></div>
         <?php endif; ?>
 
         <div class="getform">
@@ -392,7 +407,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><a href="work-water-sanitation">Water, Sanitation & Green Initiatives</a></li>
                 <li><a href="work-health">Health</a></li>
                 <li><a href="work-education">Education</a></li>
-                <li><a href="Work-Ecomonic-Development">Economic Development</a></li>
+                <li><a href="Work-economic-Development">Economic Development</a></li>
               </ul>
             </div>
 

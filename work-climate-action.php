@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <!DOCTYPE html>
 <html>
 
@@ -86,7 +87,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="work-water-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="work-health">Health</a></li>
                   <li><a href="work-education">Education</a></li>
-                  <li><a href="Work-Ecomonic-Development">Economic Development</a></li>
+                  <li><a href="Work-economic-Development">Economic Development</a></li>
                 </ul>
               </li>
 

@@ -8,7 +8,7 @@ if (function_exists('cms_apply_seo_redirects')) {
       <div class="header-menu">
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="/">
-            <img src="./assets/images/inner-page-logo.svg" alt="" >
+            <img src="<?= htmlspecialchars(cms_media_src('./assets/images/inner-page-logo.svg', './assets/images/inner-page-logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/inner-page-logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>" >
           </a>
           <div class="nav-container  collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav innermenu navmenu mx-auto">
@@ -27,7 +27,7 @@ if (function_exists('cms_apply_seo_redirects')) {
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>

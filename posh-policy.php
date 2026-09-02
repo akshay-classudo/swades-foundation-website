@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/include/cms.php'; ?>
 <!DOCTYPE html>
 <html>
 
@@ -120,7 +121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -164,7 +165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div><!--detail-hd-->
       <div class="detail-werap">
         <div class="initiative2">
-          <h3>PREVENTION OF SEXUAL HARRASMENT POLICY (POSH)</h3><br/>
+          <h3>PREVENTION OF SEXUAL HARASSMENT POLICY (POSH)</h3><br/>
           <h4>HARASSMENT FREE WORKPLACE</h4>
           <p>Swades will strive to provide a work environment, free of unlawful discrimination, harassment and/or intimidation. Such conduct interferes with an employee’s ability to perform his/her duties and is not consistent with our Company’s philosophy of trust and mutual respect.</p>
           <p>Compliance with this policy is the responsibility of all Swades employees. Every employee must avoid any behavior or conduct that could reasonably be interpreted as a violation of this policy, and every employee should try to maintain a work environment- free from discrimination, harassment or intimidation.</p>

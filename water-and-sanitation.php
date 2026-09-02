@@ -1,7 +1,7 @@
-<?php 
-include 'db.php';
+<?php require_once __DIR__ . '/include/cms.php';
+?>
+<?php
 $_SESSION['water'] = 4;
-require_once __DIR__ . '/include/cms.php';
 $cmsStats = cms_get_impact_stats();
 $cmsWatsanPage = cms_get_page('water-and-sanitation');
 cms_require_published_page('water-and-sanitation');
@@ -104,7 +104,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <li><a href="water-and-sanitation">Water, Sanitation & Green Initiatives</a></li>
                   <li><a href="health">Health</a></li>
                   <li><a href="educations">Education</a></li>
-                  <li><a href="ecomonic-development">Economic Development</a></li>
+                  <li><a href="economic-development">Economic Development</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a href="dreamvillage">Swades Dream Village</a></li>
@@ -464,7 +464,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <!--<h6>When clean water flows home, hope and opportunity follow</h6>-->
                   <p>Behind this smile there has been a lot of struggle and pain. Sagibai Maruti Mahable, living in Chachkond (in rural Raigad) has been spending about 10 – 12 hours daily fetching water for her household needs. This everyday tussle, since decades, was not only the plight of Sagibai but for 22 other households in Chachkond.
                   </p>
-                  <p>SUnclean water often led to a lot of people in the village falling ill. Sagibai in particular, was frustrated with constant illness and resulting weakness. She was no longer able to physically manage the drudgery. This pain and struggle lasted too long but in 2018, after the water intervention all households in the village received potable Drinking Water in homes through taps – Clean water in homes was nothing short of a dream come true for them.
+                  <p>Unclean water often led to a lot of people in the village falling ill. Sagibai in particular, was frustrated with constant illness and resulting weakness. She was no longer able to physically manage the drudgery. This pain and struggle lasted too long but in 2018, after the water intervention all households in the village received potable Drinking Water in homes through taps – Clean water in homes was nothing short of a dream come true for them.
                   </p>
                   <p>Incidence of water borne diseases reduced drastically, people had more time at hand and many engaged this new found free time in some or the other economic activities. Sagibai, herself started #dairy business and also now helps her husband in #farming.</p>
                   <p>“Everything for us in life revolves around water. We were overjoyed to see our dream come true. ” – says Sagibai.</p>
@@ -491,7 +491,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <!--<h6>When clean water flows home, hope and opportunity follow</h6>-->
                   <p>Behind this smile there has been a lot of struggle and pain. Sagibai Maruti Mahable, living in Chachkond (in rural Raigad) has been spending about 10 – 12 hours daily fetching water for her household needs. This everyday tussle, since decades, was not only the plight of Sagibai but for 22 other households in Chachkond.
                   </p>
-                  <p>SUnclean water often led to a lot of people in the village falling ill. Sagibai in particular, was frustrated with constant illness and resulting weakness. She was no longer able to physically manage the drudgery. This pain and struggle lasted too long but in 2018, after the water intervention all households in the village received potable Drinking Water in homes through taps – Clean water in homes was nothing short of a dream come true for them.
+                  <p>Unclean water often led to a lot of people in the village falling ill. Sagibai in particular, was frustrated with constant illness and resulting weakness. She was no longer able to physically manage the drudgery. This pain and struggle lasted too long but in 2018, after the water intervention all households in the village received potable Drinking Water in homes through taps – Clean water in homes was nothing short of a dream come true for them.
                   </p>
                   <p>Incidence of water borne diseases reduced drastically, people had more time at hand and many engaged this new found free time in some or the other economic activities. Sagibai, herself started #dairy business and also now helps her husband in #farming.</p>
                   <p>“Everything for us in life revolves around water. We were overjoyed to see our dream come true. ” – says Sagibai.</p>

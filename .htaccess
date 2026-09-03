@@ -6,6 +6,9 @@ RewriteRule ^sitemap\.xml$ sitemap.php [L,QSA]
 # Render published CMS pages without competing with existing PHP page URLs.
 RewriteRule ^page/([A-Za-z0-9_-]+)$ page.php?slug=$1 [L,QSA]
 
+# Clean blog post URLs: /blog/{slug} instead of Blog-detail.php?slug={slug}
+RewriteRule ^blog/([A-Za-z0-9_-]+)$ Blog-detail.php?slug=$1 [L,QSA]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f

@@ -1001,7 +1001,7 @@ function cms_public_sitemap_entries(): array
             $lastmod = date('Y-m-d', $timestamp);
         }
 
-        $addEntry('Blog-detail.php?slug=' . rawurlencode($post['slug']), $lastmod);
+        $addEntry('blog/' . rawurlencode($post['slug']), $lastmod);
     }
 
     return $entries;

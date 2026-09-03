@@ -282,7 +282,7 @@ $blogPosts = cms_get_posts();
                     <small><?php echo htmlspecialchars($postDate, ENT_QUOTES, 'UTF-8'); ?></small>
                     <h5><?php echo htmlspecialchars($postTitle, ENT_QUOTES, 'UTF-8'); ?></h5>
                     <p><?php echo htmlspecialchars($postExcerpt, ENT_QUOTES, 'UTF-8'); ?></p>
-                    <a href="Blog-detail.php?slug=<?php echo urlencode($postSlug); ?>" class="read-more">
+                    <a href="blog/<?php echo urlencode($postSlug); ?>" class="read-more">
                       Read Blog <img src="./assets/images/Blogs/right-arrow.svg" alt="">
                     </a>
                   </div>

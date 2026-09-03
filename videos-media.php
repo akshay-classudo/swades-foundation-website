@@ -473,7 +473,7 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
                   <div class="blog-content">
                     <small><?php echo htmlspecialchars($postDate, ENT_QUOTES, 'UTF-8'); ?></small>
                     <h4><?php echo htmlspecialchars($postTitle, ENT_QUOTES, 'UTF-8'); ?></h4>
-                    <a href="Blog-detail.php?slug=<?php echo urlencode($post['slug'] ?? ''); ?>" class="read-more">Read Blog <img src="./assets/images/Blogs/right-arrow.svg" alt=""></a>
+                    <a href="blog/<?php echo urlencode($post['slug'] ?? ''); ?>" class="read-more">Read Blog <img src="./assets/images/Blogs/right-arrow.svg" alt=""></a>
                   </div>
                 </div>
               <?php endforeach; ?>

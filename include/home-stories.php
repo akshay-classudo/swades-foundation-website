@@ -15,7 +15,7 @@
         $storyImageFallback = !empty($story['featured_image']) ? cms_blog_image($story, $story['homepage_fallback_image'] ?? ($fallback['image'] ?? './assets/images/Blogs/Intersect.jpg')) : ($story['homepage_fallback_image'] ?? ($fallback['image'] ?? './assets/images/Blogs/Intersect.jpg'));
         $storyImage = cms_media_src((string) $storyImagePath, $storyImageFallback);
         $storyAlt = cms_media_alt((string) $storyImagePath, $storyTitle !== '' ? $storyTitle : 'Impact story image');
-        $storyLink = !empty($story['slug']) ? 'Blog-detail.php?slug=' . rawurlencode($story['slug']) : ($story['homepage_fallback_link'] ?? ($fallback['link'] ?? '#'));
+        $storyLink = !empty($story['slug']) ? 'blog/' . rawurlencode($story['slug']) : ($story['homepage_fallback_link'] ?? ($fallback['link'] ?? '#'));
         $categoryClass = $fallback['category_class'] ?? '';
       ?>
       <div class="empowered-werap">

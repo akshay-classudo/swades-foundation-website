@@ -16,11 +16,14 @@ $blogImage = $blogPost ? cms_blog_image($blogPost) : './assets/images/Blogs/Inte
 $blogShareUrl = cms_current_url();
 $blogShareText = rawurlencode($blogTitle);
 $blogShareLink = rawurlencode($blogShareUrl);
+$publicBase = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/');
+$publicBase = $publicBase === '.' ? '' : $publicBase;
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
+  <base href="<?= htmlspecialchars($publicBase . '/', ENT_QUOTES, 'UTF-8') ?>">
   <title><?php echo htmlspecialchars($blogTitle . ' | Swades Foundation', ENT_QUOTES, 'UTF-8'); ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">

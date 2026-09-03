@@ -7,6 +7,7 @@ $cmsGlobalSocial = array_merge([
     'twitter_url' => 'https://twitter.com/WeAreSwades',
     'instagram_url' => 'https://instagram.com/swadesfoundation',
     'linkedin_url' => 'https://linkedin.com/company/swades-foundation',
+    'youtube_url' => '',
 ], $cmsGlobalSocial);
 $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty every five years through community-driven change';
 ?>
@@ -16,13 +17,14 @@ $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty 
         <div class="col-md-6">
           <div class="ftr-logo">
             <a href="index.php"><img src="<?= htmlspecialchars(cms_media_src('./assets/images/ftr_Logo.svg', './assets/images/ftr_Logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/ftr_Logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>"></a>
-            <p><?= htmlspecialchars($cmsGlobalSettings['footer_text'] ?: ($cmsGlobalSettings['tagline'] ?? $cmsFooterText), ENT_QUOTES, 'UTF-8') ?></p>
+            <p><?= htmlspecialchars(($cmsGlobalSettings['footer_text'] ?? '') ?: ($cmsGlobalSettings['tagline'] ?? $cmsFooterText), ENT_QUOTES, 'UTF-8') ?></p>
           </div>
           <div class="social-icon desktop">
             <?php if (!empty($cmsGlobalSocial['facebook_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['facebook_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/facebook.svg" alt="Facebook"></a><?php endif; ?>
             <?php if (!empty($cmsGlobalSocial['twitter_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['twitter_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/x.png" alt="X"></a><?php endif; ?>
             <?php if (!empty($cmsGlobalSocial['instagram_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['instagram_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/instagram.svg" alt="Instagram"></a><?php endif; ?>
             <?php if (!empty($cmsGlobalSocial['linkedin_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['linkedin_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/linkedIn.svg" alt="LinkedIn"></a><?php endif; ?>
+            <?php if (!empty($cmsGlobalSocial['youtube_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['youtube_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/youtube.svg" alt="YouTube"></a><?php endif; ?>
           </div>
 
         </div>
@@ -67,6 +69,7 @@ $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty 
         <?php if (!empty($cmsGlobalSocial['twitter_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['twitter_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/x.png" alt="X"></a><?php endif; ?>
         <?php if (!empty($cmsGlobalSocial['instagram_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['instagram_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/instagram.svg" alt="Instagram"></a><?php endif; ?>
         <?php if (!empty($cmsGlobalSocial['linkedin_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['linkedin_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/linkedIn.svg" alt="LinkedIn"></a><?php endif; ?>
+        <?php if (!empty($cmsGlobalSocial['youtube_url'])): ?><a href="<?= htmlspecialchars($cmsGlobalSocial['youtube_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/youtube.svg" alt="YouTube"></a><?php endif; ?>
       </div>
 
       <div class="ftr-menu mobile">
@@ -81,7 +84,7 @@ $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty 
       <div class="copyright">
         <div class="row">
           <div class="col-md-6">
-            <p><?= htmlspecialchars(str_replace('%year%', date('Y'), $cmsGlobalSettings['copyright_text'] ?: 'Copyright %year% © Swades Foundation'), ENT_QUOTES, 'UTF-8') ?></p>
+            <p><?= htmlspecialchars(str_replace('%year%', date('Y'), ($cmsGlobalSettings['copyright_text'] ?? '') ?: 'Copyright %year% © Swades Foundation'), ENT_QUOTES, 'UTF-8') ?></p>
           </div>
           <div class="col-md-6">
             <div class="privacy-dlf">

@@ -54,9 +54,9 @@ $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty 
             <div class="ftr-menu">
               <h5>Other Pages</h5>
               <ul>
-                <li><a href="https://swadesfoundation.org/videos-media#media">Media Gallery</a></li>
-                <li><a href="blogs.php">Blogs</a></li>
-                <li><a href="https://swadesfoundation.org/videos-media#financials">Financial Reports</a></li>
+                <li><a href="videos-media#media">Media Gallery</a></li>
+                <li><a href="blogs">Blogs</a></li>
+                <li><a href="videos-media#financials">Financial Reports</a></li>
                 <li><a href="contact">Contact</a></li>
               </ul>
             </div>

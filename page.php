@@ -3,6 +3,40 @@ require_once __DIR__ . '/include/cms.php';
 
 $slug = trim((string) ($_GET['slug'] ?? ''));
 $slug = preg_replace('/[^A-Za-z0-9_-]/', '', $slug);
+
+// These slugs already have a dedicated, fully-designed static page at a clean URL.
+// Redirect the generic /page/{slug} duplicate there instead of rendering a second,
+// thinner copy of the same CMS content.
+$cleanUrlRedirects = [
+    'about-us' => 'about-us',
+    'our-team' => 'our-team',
+    'impact' => 'impact',
+    'water-and-sanitation' => 'water-and-sanitation',
+    'economic-development' => 'economic-development',
+    'ecomonic-development' => 'economic-development',
+    'dream-village' => 'dreamvillage',
+    'work-climate-action' => 'work-climate-action',
+    'donate' => 'Donate',
+    'volunteer' => 'volunteer',
+    'sse' => 'sse',
+    'videos-media' => 'videos-media',
+    'privacy-policy' => 'privacy-policy',
+    'terms-conditions' => 'terms-conditions',
+    'refund-policy' => 'refund-policy',
+    'home' => '',
+    'health' => 'health',
+    'educations' => 'educations',
+    'csr' => 'csr',
+    'contact' => 'contact',
+];
+
+if (isset($cleanUrlRedirects[$slug])) {
+    $publicBase = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/');
+    $publicBase = $publicBase === '.' ? '' : $publicBase;
+    header('Location: ' . $publicBase . '/' . $cleanUrlRedirects[$slug], true, 301);
+    exit;
+}
+
 $page = $slug !== '' ? cms_get_page($slug) : null;
 
 if (!$page) {

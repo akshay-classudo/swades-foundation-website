@@ -627,6 +627,12 @@ function cms_seo_context_from_request(): array
         }
     }
 
+    // page.php serves every /page/{slug} URL from the same script, so the slug must
+    // come from the query string here, not the script filename (which is always "page").
+    if ($script === 'page.php' && $querySlug !== '') {
+        $slug = strtolower($querySlug);
+    }
+
     $page = null;
     foreach (array_values(array_unique([$slug, 'home', str_replace('_', '-', $slug), str_replace(['.php', '_'], ['', '-'], $slug)])) as $candidate) {
         if ($candidate === '' || in_array($candidate, ['index', '404', 'robots', 'sitemap'], true)) {

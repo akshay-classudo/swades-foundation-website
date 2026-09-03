@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/cms.php';
 $cmsGlobalSettings = cms_get_site_settings();
-$cmsGlobalSocial = $cmsGlobalSettings['social'] ?? [];
+$cmsGlobalSocial = array_filter($cmsGlobalSettings['social'] ?? [], static fn($url) => is_string($url) && trim($url) !== '');
 $cmsGlobalSocial = array_merge([
     'facebook_url' => 'https://www.facebook.com/SwadesFoundation',
     'twitter_url' => 'https://twitter.com/WeAreSwades',

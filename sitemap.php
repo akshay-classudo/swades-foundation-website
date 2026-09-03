@@ -11,8 +11,8 @@ header('Content-Type: application/xml; charset=utf-8');
 header('Cache-Control: public, max-age=43200');
 
 $entries = cms_public_sitemap_entries();
+echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 ?>
-<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <?php foreach ($entries as $entry): ?>
   <url>

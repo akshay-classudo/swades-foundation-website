@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home3/swadeepx/public_html/
+    - /usr/bin/git archive --format=tar HEAD -- . ':(exclude).cpanel.yml' | /bin/tar -xf - -C $DEPLOYPATH

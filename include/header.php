@@ -8,7 +8,7 @@ if (function_exists('cms_apply_seo_redirects')) {
       <div class="header-menu">
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="/">
-            <img src="<?= htmlspecialchars(cms_media_src('./assets/images/inner-page-logo.svg', './assets/images/inner-page-logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/inner-page-logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>" >
+            <img src="<?= htmlspecialchars(cms_media_src('./assets/images/inner-page-logo.svg', './assets/images/inner-page-logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/inner-page-logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description('./assets/images/inner-page-logo.svg'), ENT_QUOTES, 'UTF-8') ?>">
           </a>
           <div class="nav-container  collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav innermenu navmenu mx-auto">

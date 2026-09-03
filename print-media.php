@@ -183,7 +183,7 @@ $cmsPrintMedia = cms_get_media_coverage('print');
             <div class="featured-card print-media-card">
               <div class="blog-img">
                 <a href="<?= htmlspecialchars($cmsMediaItem['external_url'] ?: cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener">
-                  <img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>">
+                  <img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsMediaItem['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
                 </a>
               </div>
               <div class="blog-content">

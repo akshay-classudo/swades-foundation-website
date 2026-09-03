@@ -16,7 +16,7 @@ $cmsFooterText = 'Committed to lifting one million rural Indians out of poverty 
       <div class="row">
         <div class="col-md-6">
           <div class="ftr-logo">
-            <a href="index.php"><img src="<?= htmlspecialchars(cms_media_src('./assets/images/ftr_Logo.svg', './assets/images/ftr_Logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/ftr_Logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>"></a>
+            <a href="index.php"><img src="<?= htmlspecialchars(cms_media_src('./assets/images/ftr_Logo.svg', './assets/images/ftr_Logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/ftr_Logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description('./assets/images/ftr_Logo.svg'), ENT_QUOTES, 'UTF-8') ?>"></a>
             <p><?= htmlspecialchars(($cmsGlobalSettings['footer_text'] ?? '') ?: ($cmsGlobalSettings['tagline'] ?? $cmsFooterText), ENT_QUOTES, 'UTF-8') ?></p>
           </div>
           <div class="social-icon desktop">

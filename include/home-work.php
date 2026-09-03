@@ -20,8 +20,9 @@
               $cmsWorkImagePath = (string) ($cmsWorkCard['image'] ?? '');
               $cmsWorkImage = cms_media_src($cmsWorkImagePath, $cmsWorkImagePath);
               $cmsWorkAlt = cms_media_alt($cmsWorkImagePath, (string) ($cmsWorkCard['alt'] ?? $cmsWorkTitle));
+              $cmsWorkDescriptionAttr = cms_media_description($cmsWorkImagePath);
             ?>
-            <img src="<?= htmlspecialchars($cmsWorkImage, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsWorkAlt, ENT_QUOTES, 'UTF-8') ?>" />
+            <img src="<?= htmlspecialchars($cmsWorkImage, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsWorkAlt, ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsWorkDescriptionAttr, ENT_QUOTES, 'UTF-8') ?>" />
           </div>
           <div class="ourwork-text">
             <span>

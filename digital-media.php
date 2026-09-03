@@ -191,7 +191,7 @@ $cmsDigitalMedia = cms_get_media_coverage('digital');
               <div class="blog-content">
                 <small><?= htmlspecialchars(cms_format_date($cmsMediaItem['published_date'], 'd/m/Y'), ENT_QUOTES, 'UTF-8') ?></small>
                 <?php if (!empty($cmsMediaItem['source_logo'])): ?>
-                  <img src="<?= htmlspecialchars(cms_asset_url($cmsMediaItem['source_logo']), ENT_QUOTES, 'UTF-8') ?>" class="news-logo" alt="<?= htmlspecialchars($cmsMediaItem['source'], ENT_QUOTES, 'UTF-8') ?>">
+                  <img src="<?= htmlspecialchars(cms_asset_url($cmsMediaItem['source_logo']), ENT_QUOTES, 'UTF-8') ?>" class="news-logo" alt="<?= htmlspecialchars($cmsMediaItem['source'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description($cmsMediaItem['source_logo'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
                 <?php elseif (!empty($cmsMediaItem['source'])): ?>
                   <h5><?= htmlspecialchars($cmsMediaItem['source'], ENT_QUOTES, 'UTF-8') ?></h5>
                 <?php endif; ?>

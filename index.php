@@ -381,7 +381,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="header-menu">
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="/">
-            <img src="<?= htmlspecialchars(cms_media_src('./assets/images/sawades-logo.svg', './assets/images/sawades-logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/sawades-logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>">
+            <img src="<?= htmlspecialchars(cms_media_src('./assets/images/sawades-logo.svg', './assets/images/sawades-logo.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(cms_media_alt('./assets/images/sawades-logo.svg', 'Swades Foundation'), ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description('./assets/images/sawades-logo.svg'), ENT_QUOTES, 'UTF-8') ?>">
           </a>
           <div class="nav-container collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav navmenu mx-auto">
@@ -1236,8 +1236,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             $cmsCommunityImagePath = (string) ($cmsCommunityCard['image'] ?? '');
             $cmsCommunityImage = cms_media_src($cmsCommunityImagePath, $cmsCommunityImagePath);
             $cmsCommunityAlt = cms_media_alt($cmsCommunityImagePath, (string) ($cmsCommunityCard['alt'] ?? $cmsCommunityCard['title'] ?? 'Community programme illustration'));
+            $cmsCommunityDescription = cms_media_description($cmsCommunityImagePath);
           ?>
-          <span class="Engage-img"><img src="<?= htmlspecialchars($cmsCommunityImage, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsCommunityAlt, ENT_QUOTES, 'UTF-8') ?>"></span>
+          <span class="Engage-img"><img src="<?= htmlspecialchars($cmsCommunityImage, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsCommunityAlt, ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsCommunityDescription, ENT_QUOTES, 'UTF-8') ?>"></span>
         </div>
         <?php endforeach; ?>
       </div>
@@ -1277,7 +1278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 $logoUrl = cms_asset_url($logo['logo_path']);
                 echo '
                 <div class="brandlogo">
-                    <img src="' . htmlspecialchars($logoUrl ?: '', ENT_QUOTES, 'UTF-8') . '" alt="' . htmlspecialchars($logo['alt_text'] ?: 'Believer Logo', ENT_QUOTES, 'UTF-8') . '" loading="lazy">
+                    <img src="' . htmlspecialchars($logoUrl ?: '', ENT_QUOTES, 'UTF-8') . '" alt="' . htmlspecialchars($logo['alt_text'] ?: 'Believer Logo', ENT_QUOTES, 'UTF-8') . '" title="' . htmlspecialchars($logo['meta_description'] ?? '', ENT_QUOTES, 'UTF-8') . '" loading="lazy">
                 </div>';
             }
 
@@ -1304,7 +1305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 echo '
                 <div class="brandlogo">
-                    <img src="' . htmlspecialchars($logoUrl ?: '', ENT_QUOTES, 'UTF-8') . '" alt="' . htmlspecialchars($logo['alt_text'] ?: 'Partner Logo', ENT_QUOTES, 'UTF-8') . '" loading="lazy">
+                    <img src="' . htmlspecialchars($logoUrl ?: '', ENT_QUOTES, 'UTF-8') . '" alt="' . htmlspecialchars($logo['alt_text'] ?: 'Partner Logo', ENT_QUOTES, 'UTF-8') . '" title="' . htmlspecialchars($logo['meta_description'] ?? '', ENT_QUOTES, 'UTF-8') . '" loading="lazy">
                 </div>';
             }
 

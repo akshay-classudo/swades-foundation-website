@@ -548,13 +548,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 $logoUrl = cms_asset_url($logo['logo_path']);
                 echo '
                 <div class="brandlogo">
-                    <img src="' . htmlspecialchars($logoUrl ?: '', ENT_QUOTES, 'UTF-8') . '" alt="' . htmlspecialchars($logo['alt_text'] ?: 'Believer Logo', ENT_QUOTES, 'UTF-8') . '" loading="lazy">
+                    <img src="' . htmlspecialchars($logoUrl ?: '', ENT_QUOTES, 'UTF-8') . '" alt="' . htmlspecialchars($logo['alt_text'] ?: 'Believer Logo', ENT_QUOTES, 'UTF-8') . '" title="' . htmlspecialchars($logo['meta_description'] ?? '', ENT_QUOTES, 'UTF-8') . '" loading="lazy">
                 </div>';
             }
 
             echo '</div>';
         } ?>
-        ?>
 
     </div>
 

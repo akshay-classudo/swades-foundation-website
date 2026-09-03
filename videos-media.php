@@ -185,7 +185,7 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
           <?php $cmsVideoLink = $cmsMediaItem['external_url'] ?: $cmsMediaItem['embed_url']; ?>
           <div class="featured-card">
             <div class="blog-img">
-              <img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>">
+              <img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsMediaItem['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
               <?php if ($cmsVideoLink): ?>
                 <div class="thumbnail"><a href="<?= htmlspecialchars($cmsVideoLink, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/Blogs/youtube.svg" alt="Watch video"></a></div>
               <?php endif; ?>
@@ -284,10 +284,10 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
             <div class="gridlayer4">
               <?php foreach ($cmsDigitalCoverage as $cmsMediaItem): ?>
                 <div class="featured-card">
-                  <div class="blog-img"><img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>"></div>
+                  <div class="blog-img"><img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsMediaItem['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></div>
                   <div class="blog-content">
                     <small><?= htmlspecialchars(cms_format_date($cmsMediaItem['published_date'], 'd/m/Y'), ENT_QUOTES, 'UTF-8') ?></small>
-                    <?php if (!empty($cmsMediaItem['source_logo'])): ?><img src="<?= htmlspecialchars(cms_asset_url($cmsMediaItem['source_logo']), ENT_QUOTES, 'UTF-8') ?>" class="news-logo" alt=""><?php endif; ?>
+                    <?php if (!empty($cmsMediaItem['source_logo'])): ?><img src="<?= htmlspecialchars(cms_asset_url($cmsMediaItem['source_logo']), ENT_QUOTES, 'UTF-8') ?>" class="news-logo" alt="<?= htmlspecialchars($cmsMediaItem['source'] ?? '', ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description($cmsMediaItem['source_logo'] ?? ''), ENT_QUOTES, 'UTF-8') ?>"><?php endif; ?>
                     <p><?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?></p>
                     <?php $cmsMediaLink = $cmsMediaItem['external_url'] ?: $cmsMediaItem['embed_url']; ?>
                     <?php if ($cmsMediaLink): ?><a href="<?= htmlspecialchars($cmsMediaLink, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener" class="read-more">Read Article <img src="./assets/images/Blogs/right-arrow.svg" alt=""></a><?php endif; ?>
@@ -381,7 +381,7 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
               <?php foreach ($cmsPrintCoverage as $cmsMediaItem): ?>
                 <?php $cmsMediaLink = $cmsMediaItem['external_url'] ?: cms_media_image($cmsMediaItem); ?>
                 <div class="featured-card print-media-card">
-                  <div class="blog-img"><a href="<?= htmlspecialchars($cmsMediaLink, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>"></a></div>
+                  <div class="blog-img"><a href="<?= htmlspecialchars($cmsMediaLink, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsMediaItem['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></a></div>
                   <div class="blog-content"><a href="<?= htmlspecialchars($cmsMediaLink, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener" class="read-more">View Article <img src="./assets/images/Blogs/right-arrow.svg" alt=""></a></div>
                 </div>
               <?php endforeach; ?>

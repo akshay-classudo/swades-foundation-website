@@ -304,7 +304,7 @@ function cms_get_logos(string $type, int $limit = 0): array
     }
 
     try {
-        $sql = "SELECT logo_path, alt_text
+        $sql = "SELECT logo_path, alt_text, meta_description
                 FROM believers
                 WHERE type = ? AND active = 1
                 ORDER BY sort_order ASC, id ASC";

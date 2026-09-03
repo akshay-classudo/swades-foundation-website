@@ -406,6 +406,7 @@ function cms_get_awards(): array
         $stmt = $db->query('SELECT year, title, image FROM awards WHERE active = 1 ORDER BY sort_order ASC, id DESC');
         $awards = [];
         foreach ($stmt->fetchAll() ?: [] as $award) {
+            $award['image_description'] = cms_media_description($award['image'] ?? '');
             $award['image'] = cms_asset_url($award['image'] ?? null);
             $awards[] = $award;
         }
@@ -692,7 +693,7 @@ function cms_get_media_by_id(int $id): ?array
     }
 
     try {
-        $stmt = $db->prepare("SELECT id, name, path, alt, folder FROM media WHERE id = ? LIMIT 1");
+        $stmt = $db->prepare("SELECT id, name, path, alt, folder, meta_description FROM media WHERE id = ? LIMIT 1");
         $stmt->execute([$id]);
         $media = $stmt->fetch();
 
@@ -715,7 +716,7 @@ function cms_get_media_by_name(string $name): ?array
     }
 
     try {
-        $stmt = $db->prepare("SELECT id, name, path, alt, folder FROM media WHERE name = ? LIMIT 1");
+        $stmt = $db->prepare("SELECT id, name, path, alt, folder, meta_description FROM media WHERE name = ? LIMIT 1");
         $stmt->execute([$name]);
         $media = $stmt->fetch();
 
@@ -738,7 +739,7 @@ function cms_get_media_by_folder(string $folder, int $limit = 0): array
     }
 
     try {
-        $sql = "SELECT id, name, path, alt, folder FROM media WHERE folder = ?";
+        $sql = "SELECT id, name, path, alt, folder, meta_description FROM media WHERE folder = ?";
         $params = [$folder];
 
         $sql .= ' ORDER BY id ASC';
@@ -780,7 +781,7 @@ function cms_get_media_by_path(string $path): ?array
     }
 
     try {
-        $stmt = $db->prepare("SELECT id, name, path, alt, folder FROM media WHERE path = ? LIMIT 1");
+        $stmt = $db->prepare("SELECT id, name, path, alt, folder, meta_description FROM media WHERE path = ? LIMIT 1");
         $stmt->execute([$normalizedPath]);
         $media = $stmt->fetch();
 
@@ -814,6 +815,27 @@ function cms_media_alt(string $path, string $fallback = ''): string
     return $altCache[$normalizedPath] !== '' ? $altCache[$normalizedPath] : $fallback;
 }
 
+/**
+ * SEO/accessibility-only description (rendered as the image's title attribute,
+ * not shown visibly on the page) — distinct from the required alt text.
+ */
+function cms_media_description(string $path, string $fallback = ''): string
+{
+    static $descriptionCache = [];
+    $normalizedPath = ltrim(str_replace('\\', '/', trim($path)), './');
+
+    if ($normalizedPath === '') {
+        return $fallback;
+    }
+
+    if (!array_key_exists($normalizedPath, $descriptionCache)) {
+        $media = cms_get_media_by_path($normalizedPath);
+        $descriptionCache[$normalizedPath] = trim((string) ($media['meta_description'] ?? ''));
+    }
+
+    return $descriptionCache[$normalizedPath] !== '' ? $descriptionCache[$normalizedPath] : $fallback;
+}
+
 function cms_media_src(string $path, string $fallback = ''): string
 {
     static $srcCache = [];
@@ -840,6 +862,13 @@ function cms_media_image_tag(string $path, string $fallbackAlt = '', array $attr
         return '';
     }
 
+    if (!isset($attributes['title'])) {
+        $description = cms_media_description($path);
+        if ($description !== '') {
+            $attributes['title'] = $description;
+        }
+    }
+
     return cms_image_tag($src, $alt, $attributes);
 }
 
@@ -857,8 +886,9 @@ function cms_image_tag(string $imagePath, string $altText = '', array $attribute
     $width = isset($attributes['width']) ? ' width="' . htmlspecialchars($attributes['width'], ENT_QUOTES, 'UTF-8') . '"' : '';
     $height = isset($attributes['height']) ? ' height="' . htmlspecialchars($attributes['height'], ENT_QUOTES, 'UTF-8') . '"' : '';
     $loading = isset($attributes['loading']) ? ' loading="' . htmlspecialchars($attributes['loading'], ENT_QUOTES, 'UTF-8') . '"' : '';
+    $title = isset($attributes['title']) ? ' title="' . htmlspecialchars($attributes['title'], ENT_QUOTES, 'UTF-8') . '"' : '';
 
-    return '<img src="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '" alt="' . $alt . '"' . $class . $style . $id . $width . $height . $loading . '>';
+    return '<img src="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '" alt="' . $alt . '"' . $class . $style . $id . $width . $height . $loading . $title . '>';
 }
 
 function cms_frontend_media_buffer(string $html): string
@@ -869,6 +899,7 @@ function cms_frontend_media_buffer(string $html): string
             $path = $matches[2];
             $src = cms_media_src($path, $path);
             $alt = cms_media_alt($path, '');
+            $description = cms_media_description($path);
             $attributes = $matches[1] . htmlspecialchars($src, ENT_QUOTES, 'UTF-8') . $matches[3];
 
             if ($alt !== '') {
@@ -882,6 +913,20 @@ function cms_frontend_media_buffer(string $html): string
                     );
                 } else {
                     $attributes .= ' alt="' . $escapedAlt . '"';
+                }
+            }
+
+            if ($description !== '') {
+                $escapedDescription = htmlspecialchars($description, ENT_QUOTES, 'UTF-8');
+                if (preg_match('~\btitle=["\'][^"\']*["\']~i', $attributes)) {
+                    $attributes = preg_replace(
+                        '~\btitle=["\'][^"\']*["\']~i',
+                        'title="' . $escapedDescription . '"',
+                        $attributes,
+                        1
+                    );
+                } else {
+                    $attributes .= ' title="' . $escapedDescription . '"';
                 }
             }
 

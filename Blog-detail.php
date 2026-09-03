@@ -136,7 +136,7 @@ $publicBase = $publicBase === '.' ? '' : $publicBase;
           <?php endif; ?>
 
           <div class="blog-post">
-            <img src="<?php echo htmlspecialchars($blogImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($blogTitle, ENT_QUOTES, 'UTF-8'); ?>">
+            <img src="<?php echo htmlspecialchars($blogImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($blogTitle, ENT_QUOTES, 'UTF-8'); ?>" title="<?php echo htmlspecialchars(cms_media_description($blogPost['featured_image'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>">
           </div>
 
           <div class="initiative">

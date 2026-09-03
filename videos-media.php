@@ -468,7 +468,7 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
                 ?>
                 <div class="blog-card">
                   <div class="blog-img">
-                    <img src="<?php echo htmlspecialchars($postImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($postTitle, ENT_QUOTES, 'UTF-8'); ?>">
+                    <img src="<?php echo htmlspecialchars($postImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($postTitle, ENT_QUOTES, 'UTF-8'); ?>" title="<?php echo htmlspecialchars(cms_media_description($post['featured_image'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>">
                   </div>
                   <div class="blog-content">
                     <small><?php echo htmlspecialchars($postDate, ENT_QUOTES, 'UTF-8'); ?></small>

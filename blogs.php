@@ -276,7 +276,7 @@ $blogPosts = cms_get_posts();
               <div class="col-12 col-md-6 col-lg-4">
                 <div class="featured-card">
                   <div class="blog-img">
-                    <img src="<?php echo htmlspecialchars($postImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($postTitle, ENT_QUOTES, 'UTF-8'); ?>">
+                    <img src="<?php echo htmlspecialchars($postImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($postTitle, ENT_QUOTES, 'UTF-8'); ?>" title="<?php echo htmlspecialchars(cms_media_description($post['featured_image'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>">
                   </div>
                   <div class="blog-content">
                     <small><?php echo htmlspecialchars($postDate, ENT_QUOTES, 'UTF-8'); ?></small>

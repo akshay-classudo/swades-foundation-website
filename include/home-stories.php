@@ -26,7 +26,7 @@
           <a href="<?= htmlspecialchars($storyLink, ENT_QUOTES, 'UTF-8') ?>" class="readmore">Read Impact Story <img src="./assets/images/arrow-right.svg" alt="" aria-hidden="true"></a>
         </div>
         <div class="empowe-img">
-          <img src="<?= htmlspecialchars($storyImage, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($storyAlt, ENT_QUOTES, 'UTF-8') ?>">
+          <img src="<?= htmlspecialchars($storyImage, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($storyAlt, ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description((string) $storyImagePath), ENT_QUOTES, 'UTF-8') ?>">
         </div>
       </div><!---empowered-werap-->
     <?php endforeach; ?>

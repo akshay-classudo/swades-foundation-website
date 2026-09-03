@@ -137,7 +137,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="award-card">
               <div class="award-img">
                 <?php if (!empty($award['image'])): ?>
-                  <img src="<?= htmlspecialchars($award['image']) ?>" alt="<?= htmlspecialchars($award['title']) ?>">
+                  <img src="<?= htmlspecialchars($award['image']) ?>" alt="<?= htmlspecialchars($award['title']) ?>" title="<?= htmlspecialchars($award['image_description'] ?? '') ?>">
                 <?php endif; ?>
               </div>
               <span class="year"><?= htmlspecialchars($award['year']) ?></span>

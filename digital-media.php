@@ -186,7 +186,7 @@ $cmsDigitalMedia = cms_get_media_coverage('digital');
           <?php foreach ($cmsDigitalMedia as $cmsMediaItem): ?>
             <div class="featured-card">
               <div class="blog-img">
-                <img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>">
+                <img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsMediaItem['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
               </div>
               <div class="blog-content">
                 <small><?= htmlspecialchars(cms_format_date($cmsMediaItem['published_date'], 'd/m/Y'), ENT_QUOTES, 'UTF-8') ?></small>

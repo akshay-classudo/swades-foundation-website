@@ -921,6 +921,92 @@ function cms_seo_settings(): array
     ];
 }
 
+function cms_render_robots_txt(): string
+{
+    $settings = cms_seo_settings();
+    $body = trim($settings['robots_content']);
+
+    if ($body === '') {
+        $body = "User-agent: *\nAllow: /";
+    }
+
+    if ($settings['sitemap_enabled'] && stripos($body, 'sitemap:') === false) {
+        $body .= "\nSitemap: " . $settings['sitemap_url'];
+    }
+
+    return rtrim($body, "\n") . "\n";
+}
+
+/**
+ * URLs come from the same sources already used to render the site: the shared
+ * nav/footer route list, plus published CMS pages and blog posts from the DB.
+ */
+function cms_public_sitemap_entries(): array
+{
+    $baseUrl = rtrim(cms_public_base_url(), '/');
+    $entries = [];
+    $seen = [];
+
+    $addEntry = function (string $path, string $lastmod = '') use (&$entries, &$seen, $baseUrl): void {
+        $loc = $path === '' ? $baseUrl . '/' : $baseUrl . '/' . ltrim($path, '/');
+        if (isset($seen[$loc])) {
+            return;
+        }
+        $seen[$loc] = true;
+
+        $entry = ['loc' => $loc];
+        if ($lastmod !== '') {
+            $entry['lastmod'] = $lastmod;
+        }
+        $entries[] = $entry;
+    };
+
+    $addEntry('');
+    foreach (cms_navigation_sections() as $section) {
+        if (isset($section['url'])) {
+            $addEntry($section['url']);
+        }
+        foreach ($section['children'] ?? [] as $child) {
+            if (isset($child['url'])) {
+                $addEntry($child['url']);
+            }
+        }
+    }
+    foreach (['contact', 'blogs', 'privacy-policy', 'terms-conditions', 'refund-policy', 'posh-policy'] as $staticSlug) {
+        $addEntry($staticSlug);
+    }
+
+    $db = cms_db();
+    if ($db) {
+        try {
+            $stmt = $db->query("SELECT slug FROM pages WHERE status = 'published' AND (`index` IS NULL OR `index` = 1)");
+            foreach ($stmt->fetchAll() ?: [] as $row) {
+                if (($row['slug'] ?? '') !== '') {
+                    $addEntry('page/' . $row['slug']);
+                }
+            }
+        } catch (Throwable $e) {
+            error_log('CMS Error (cms_public_sitemap_entries pages): ' . $e->getMessage());
+        }
+    }
+
+    foreach (cms_get_posts(0) as $post) {
+        if (($post['slug'] ?? '') === '') {
+            continue;
+        }
+
+        $lastmod = '';
+        $timestamp = !empty($post['published_at']) ? strtotime($post['published_at']) : false;
+        if ($timestamp !== false) {
+            $lastmod = date('Y-m-d', $timestamp);
+        }
+
+        $addEntry('Blog-detail.php?slug=' . rawurlencode($post['slug']), $lastmod);
+    }
+
+    return $entries;
+}
+
 function cms_render_seo_tags(array $context = []): string
 {
     $settings = cms_seo_settings();

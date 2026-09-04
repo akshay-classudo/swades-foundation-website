@@ -166,7 +166,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <?php foreach ($cmsMembers as $cmsMember): ?>
             <div class="our-werap">
               <div class="teamimg" data-bs-toggle="modal" data-bs-target="#cmsTeamModal<?= (int) $cmsMember['id'] ?>" role="button" tabindex="0">
-                <img src="<?= htmlspecialchars(cms_asset_url($cmsMember['photo']) ?: './assets/images/ourteam/frame.svg', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMember['name'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description($cmsMember['photo'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+                <img src="<?= htmlspecialchars(cms_asset_url($cmsMember['photo']) ?: './assets/images/ourteam/frame.svg', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(trim($cmsMember['name'] . ', ' . ($cmsMember['role'] ?: $cmsDepartment)), ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description($cmsMember['photo'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
               </div>
               <div class="ourtext">
                 <p><?= htmlspecialchars($cmsMember['role'] ?: $cmsDepartment, ENT_QUOTES, 'UTF-8') ?></p>
@@ -502,7 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="row">
                 <div class="col-md-4">
                   <div class="teamimg m-0">
-                    <img src="<?= htmlspecialchars(cms_asset_url($cmsMember['photo']) ?: './assets/images/ourteam/frame.svg', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMember['name'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description($cmsMember['photo'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+                    <img src="<?= htmlspecialchars(cms_asset_url($cmsMember['photo']) ?: './assets/images/ourteam/frame.svg', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars(trim($cmsMember['name'] . ', ' . ($cmsMember['role'] ?: $cmsMember['department'])), ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description($cmsMember['photo'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
                   </div>
                 </div>
                 <div class="col-md-8">

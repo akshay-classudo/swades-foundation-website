@@ -7,6 +7,28 @@ $cmsDigitalCoverage = cms_get_media_coverage('digital', 4);
 $cmsPrintCoverage = cms_get_media_coverage('print', 4);
 $cmsVideoCoverage = cms_get_media_coverage('video', 4);
 $cmsVideosMediaPage = cms_get_page('videos-media');
+
+// Some media-coverage thumbnails are reused across multiple articles, so alt text
+// can't be keyed by image path there; each article's own title is unique, so the
+// override is keyed by title instead.
+$cmsMediaAltOverrides = [
+    "A Ground Report On Ronnie & Zarine Screwvala's Swades Foundation & How It's Empowering Rural India" => 'Swades Foundation rural empowerment ground report featuring Ronnie and Zarine Screwvala',
+    "A Ground Report On Ronnie & Zarina Screwvala's Swades Foundation & How It's Empowering Rural India" => 'Swades Foundation rural empowerment ground report featuring Ronnie and Zarine Screwvala',
+    'Swades Founders Receiving Prestigious #FILA2024 Award' => 'Swades Foundation founders receiving the FILA 2024 Award',
+    'How Water Touched Lives in Gotvihira' => 'Water access transforming lives in Gotvihira through Swades Foundation initiatives',
+    'Inside Swades Dream Village: A Model for Community-Driven Change' => 'Swades Dream Village model for community-driven rural change',
+    'Tech should work even in remote regions for impact: Mangesh Wange, CEO, Swades Foundation' => 'Mangesh Wange, CEO of Swades Foundation, discussing technology for impact in remote regions',
+    'Social sector thrives on collaboration, not competition' => 'Woman accessing water in a rural community featured in Swades Foundation social sector story',
+    'Oracle, Swades Foundation rural livelihoods programme helps women in Maharashtra' => 'Oracle and Swades Foundation rural livelihoods programme supporting women in Maharashtra',
+    'What Happens When Villages Lead Their Own Change' => 'Swades Foundation community members celebrating village-led rural change',
+];
+
+// Featured blog cards: keyed by slug for the same reason (shared fallback images).
+$cmsBlogAltOverrides = [
+    'corporate-to-community-reflections-on-a-decade-of-learning-and-letting-go' => 'Swades Foundation community engagement during Corporate to Community programme',
+    'community-driven-change-needs-shared-goals-not-set-targets' => 'Swades Foundation community members leading community-driven rural change',
+    'social-sector-thrives-on-collaboration-not-competition' => 'Swades Foundation community and social sector collaboration',
+];
 ?>
 <!DOCTYPE html>
 <html>
@@ -185,7 +207,7 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
           <?php $cmsVideoLink = $cmsMediaItem['external_url'] ?: $cmsMediaItem['embed_url']; ?>
           <div class="featured-card">
             <div class="blog-img">
-              <img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsMediaItem['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+              <img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaAltOverrides[$cmsMediaItem['title']] ?? $cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsMediaItem['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
               <?php if ($cmsVideoLink): ?>
                 <div class="thumbnail"><a href="<?= htmlspecialchars($cmsVideoLink, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><img src="./assets/images/Blogs/youtube.svg" alt="Watch video"></a></div>
               <?php endif; ?>
@@ -284,7 +306,7 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
             <div class="gridlayer4">
               <?php foreach ($cmsDigitalCoverage as $cmsMediaItem): ?>
                 <div class="featured-card">
-                  <div class="blog-img"><img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsMediaItem['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></div>
+                  <div class="blog-img"><img src="<?= htmlspecialchars(cms_media_image($cmsMediaItem), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($cmsMediaAltOverrides[$cmsMediaItem['title']] ?? $cmsMediaItem['title'], ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars($cmsMediaItem['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></div>
                   <div class="blog-content">
                     <small><?= htmlspecialchars(cms_format_date($cmsMediaItem['published_date'], 'd/m/Y'), ENT_QUOTES, 'UTF-8') ?></small>
                     <?php if (!empty($cmsMediaItem['source_logo'])): ?><img src="<?= htmlspecialchars(cms_asset_url($cmsMediaItem['source_logo']), ENT_QUOTES, 'UTF-8') ?>" class="news-logo" alt="<?= htmlspecialchars($cmsMediaItem['source'] ?? '', ENT_QUOTES, 'UTF-8') ?>" title="<?= htmlspecialchars(cms_media_description($cmsMediaItem['source_logo'] ?? ''), ENT_QUOTES, 'UTF-8') ?>"><?php endif; ?>
@@ -468,7 +490,7 @@ $cmsVideosMediaPage = cms_get_page('videos-media');
                 ?>
                 <div class="blog-card">
                   <div class="blog-img">
-                    <img src="<?php echo htmlspecialchars($postImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($postTitle, ENT_QUOTES, 'UTF-8'); ?>" title="<?php echo htmlspecialchars(cms_media_description($post['featured_image'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>">
+                    <img src="<?php echo htmlspecialchars($postImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($cmsBlogAltOverrides[$post['slug'] ?? ''] ?? $postTitle, ENT_QUOTES, 'UTF-8'); ?>" title="<?php echo htmlspecialchars(cms_media_description($post['featured_image'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>">
                   </div>
                   <div class="blog-content">
                     <small><?php echo htmlspecialchars($postDate, ENT_QUOTES, 'UTF-8'); ?></small>

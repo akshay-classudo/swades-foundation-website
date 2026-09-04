@@ -409,7 +409,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>trained within the communities</p>
         </div>
         <div class="climate-img">
-          <img src="./assets/images/home/Home/i-health.png" alt="" >
+          <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/Home/i-health.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Swades Foundation community health volunteers" title="Supporting healthcare visual accompanying the statistic for health volunteers trained within communities.">
         </div>
       </div><!---through-box-->
       
@@ -431,7 +431,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>conducted to restore sight</p>
         </div>
         <div class="climate-img">
-          <img src="./assets/images/home/Home/i-health2.png" alt="">
+          <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/Home/i-health2.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Cataract surgeries supported through Swades Foundation health programmes" title="Supporting photograph accompanying the statistic for cataract surgeries conducted to restore sight.">
         </div>
       </div><!---through-box-->
       
@@ -517,7 +517,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>trained within the communities</p>
         </div>
         <div class="climate-img">
-          <img src="./assets/images/home/Home/i-health.png" alt="" >
+          <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/Home/i-health.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Swades Foundation community health volunteers" title="Supporting healthcare visual accompanying the statistic for health volunteers trained within communities.">
         </div>
       </div><!---through-box-->
       
@@ -539,7 +539,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>conducted to restore sight</p>
         </div>
         <div class="climate-img">
-          <img src="./assets/images/home/Home/i-health2.png" alt="">
+          <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/Home/i-health2.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Cataract surgeries supported through Swades Foundation health programmes" title="Supporting photograph accompanying the statistic for cataract surgeries conducted to restore sight.">
         </div>
       </div><!---through-box-->
           <div class="through-box covercolor3 Impact5 newheight5">

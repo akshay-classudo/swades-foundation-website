@@ -264,7 +264,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p>supported through <br />scholarship</p>
             </div>
             <div class="climate-img">
-              <img src="./assets/images/edu/i-edu-1.png" alt="">
+              <img src="<?= htmlspecialchars(cms_asset_url('assets/images/edu/i-edu-1.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Student supported through an education scholarship" title="Photograph of a student holding books, representing students supported through scholarships.">
             </div>
           </div><!---through-box-->
       
@@ -286,7 +286,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p>supported with library set-up</p>
             </div>
             <div class="climate-img">
-              <img src="./assets/images/edu/i-edu-2.png" alt="">
+              <img src="<?= htmlspecialchars(cms_asset_url('assets/images/edu/i-edu-2.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Student using a school library supported by Swades Foundation" title="Photograph of a student standing beside books in a school library, representing schools supported with library set-up.">
             </div>
           </div><!---through-box-->
           
@@ -372,7 +372,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p>supported through <br />scholarship</p>
             </div>
             <div class="climate-img">
-              <img src="./assets/images/edu/i-edu-1.png" alt="">
+              <img src="<?= htmlspecialchars(cms_asset_url('assets/images/edu/i-edu-1.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Student supported through an education scholarship" title="Photograph of a student holding books, representing students supported through scholarships.">
             </div>
           </div><!---through-box-->
       
@@ -394,7 +394,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p>supported with library set-up</p>
             </div>
             <div class="climate-img">
-              <img src="./assets/images/edu/i-edu-2.png" alt="">
+              <img src="<?= htmlspecialchars(cms_asset_url('assets/images/edu/i-edu-2.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Student using a school library supported by Swades Foundation" title="Photograph of a student standing beside books in a school library, representing schools supported with library set-up.">
             </div>
           </div><!---through-box-->
           
@@ -519,7 +519,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="col-md-6">
               <div class="togetherimg">
                   
-                <img src="./assets/images/home/soe-edu.png" alt="">
+                <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/soe-edu.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Sharvari, Swades Excellence Scholarship recipient" title="Photograph of Sharvari, a scholarship recipient, standing outdoors with her student identification card.">
               </div>
             </div>
             <div class="col-md-6">
@@ -541,7 +541,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="col-md-6">
               <div class="togetherimg">
                   
-                <img src="./assets/images/home/soe-edu.png" alt="">
+                <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/soe-edu.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Sharvari, Swades Excellence Scholarship recipient" title="Photograph of Sharvari, a scholarship recipient, standing outdoors with her student identification card.">
               </div>
             </div>
             <div class="col-md-6">

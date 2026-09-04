@@ -250,7 +250,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>empowered across livestock and farm initiatives</p>
           </div>
           <div class="climate-img">
-            <img src="./assets/images/EconomicDevelopement/i-ed.png" alt="">
+            <img src="<?= htmlspecialchars(cms_asset_url('assets/images/EconomicDevelopement/i-ed.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Woman entrepreneur with goats supported through livelihood initiatives" title="Photograph of a woman with goats, representing entrepreneurs empowered through livestock and farm initiatives.">
           </div>
         </div><!---through-box ed-impact-->
 
@@ -272,7 +272,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>trained through capacity-building programmes</p>
           </div>
           <div class="climate-img">
-            <img src="./assets/images/EconomicDevelopement/i-ed-2.png" alt="">
+            <img src="<?= htmlspecialchars(cms_asset_url('assets/images/EconomicDevelopement/i-ed-2.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Farmer working in a cultivated field supported through livelihood programmes" title="Photograph of a farmer working in a cultivated field, representing farmers trained through capacity-building programmes.">
           </div>
         </div><!---through-box ed-impact-->
         
@@ -358,7 +358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>empowered across livestock and farm initiatives</p>
           </div>
           <div class="climate-img">
-            <img src="./assets/images/EconomicDevelopement/i-ed.png" alt="">
+            <img src="<?= htmlspecialchars(cms_asset_url('assets/images/EconomicDevelopement/i-ed.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Woman entrepreneur with goats supported through livelihood initiatives" title="Photograph of a woman with goats, representing entrepreneurs empowered through livestock and farm initiatives.">
           </div>
         </div><!---through-box ed-impact-->
 
@@ -380,7 +380,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>trained through capacity-building programmes</p>
           </div>
           <div class="climate-img">
-            <img src="./assets/images/EconomicDevelopement/i-ed-2.png" alt="">
+            <img src="<?= htmlspecialchars(cms_asset_url('assets/images/EconomicDevelopement/i-ed-2.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Farmer working in a cultivated field supported through livelihood programmes" title="Photograph of a farmer working in a cultivated field, representing farmers trained through capacity-building programmes.">
           </div>
         </div><!---through-box ed-impact-->
         
@@ -459,7 +459,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="sweet-homecoming" class="readmore">Read Impact Story <img src="./assets/images/arrow-right.svg" alt=""></a>
         </div>
         <div class="empowe-img">
-          <img src="./assets/images/home/ed.png" alt="">
+          <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/ed.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Amar Rajendra Kadam in his dragon fruit farm" title="Photograph of Amar Rajendra Kadam standing in a dragon fruit farm, with inset images of dragon fruit and another crop.">
         </div>
       </div>
       <div class="empowered-werap overcolor4">
@@ -517,7 +517,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="row">
             <div class="col-md-6">
               <div class="togetherimg">
-                <img src="./assets/images/home/ed.png" alt="">
+                <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/ed.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Amar Rajendra Kadam in his dragon fruit farm" title="Photograph of Amar Rajendra Kadam standing in a dragon fruit farm, with inset images of dragon fruit and another crop.">
               </div>
             </div>
             <div class="col-md-6">
@@ -545,7 +545,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="row">
             <div class="col-md-6">
               <div class="togetherimg">
-                <img src="./assets/images/home/ed.png" alt="">
+                <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/ed.png'), ENT_QUOTES, 'UTF-8') ?>" alt="Amar Rajendra Kadam in his dragon fruit farm" title="Photograph of Amar Rajendra Kadam standing in a dragon fruit farm, with inset images of dragon fruit and another crop.">
               </div>
             </div>
             <div class="col-md-6">

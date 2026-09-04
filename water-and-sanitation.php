@@ -206,7 +206,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>received access to safe,<br /> individual toilets at home</p>
           </div>
           <div class="climate-img">
-            <img src="./assets/images/home/watsan/2.png" alt="">
+            <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/watsan/2.png'), ENT_QUOTES, 'UTF-8') ?>" alt="">
           </div>
         </div><!---through-box-->
               
@@ -217,7 +217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              <p>Individual household toilets<br />built in rural homes</p>
           </div>
         <div class="climate-img p-0 watsanicon">
-         <img src="./assets/images/home/watsan/1.svg" alt="">
+         <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/watsan/1.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="">
         </div>
       </div><!---through-box-->
 
@@ -228,7 +228,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>supported with WASH facilities</p>
         </div>
         <div class="climate-img">
-          <img src="./assets/images/home/watsan/wat-san.png" alt="">
+          <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/watsan/wat-san.png'), ENT_QUOTES, 'UTF-8') ?>" alt="">
         </div>
       </div><!---through-box-->
 
@@ -239,7 +239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>declared open defecation free (ODF)</p>
         </div>
         <div class="climate-img watsanicon">
-          <img src="./assets/images/home/watsan/5.svg" alt="">
+          <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/watsan/5.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="">
         </div>
       </div><!---through-box-->
       </div>
@@ -254,7 +254,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p>received access to<br /> clean drinking water<br /> through 763 drinking<br /> water schemes</p>
             </div>
             <div class="climate-img watsanicon">
-              <img src="./assets/images/home/watsan/3.svg" alt="">
+              <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/watsan/3.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="">
             </div>
         </div><!---through-box-->
 
@@ -265,7 +265,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>received access to safe,<br /> individual toilets at home</p>
           </div>
           <div class="climate-img">
-            <img src="./assets/images/home/watsan/2.png" alt="">
+            <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/watsan/2.png'), ENT_QUOTES, 'UTF-8') ?>" alt="">
           </div>
         </div><!---through-box-->
               
@@ -276,7 +276,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              <p>Individual household toilets<br />built in rural homes</p>
           </div>
         <div class="climate-img p-0 watsanicon">
-         <img src="./assets/images/home/watsan/1.svg" alt="">
+         <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/watsan/1.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="">
         </div>
       </div><!---through-box-->
 
@@ -287,7 +287,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>supported with WASH facilities</p>
         </div>
         <div class="climate-img">
-          <img src="./assets/images/home/watsan/wat-san.png" alt="">
+          <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/watsan/wat-san.png'), ENT_QUOTES, 'UTF-8') ?>" alt="">
         </div>
       </div><!---through-box-->
 
@@ -298,7 +298,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>declared open defecation free (ODF)</p>
         </div>
         <div class="climate-img watsanicon">
-          <img src="./assets/images/home/watsan/5.svg" alt="">
+          <img src="<?= htmlspecialchars(cms_asset_url('assets/images/home/watsan/5.svg'), ENT_QUOTES, 'UTF-8') ?>" alt="">
         </div>
       </div><!---through-box-->
         </div>

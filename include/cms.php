@@ -406,7 +406,10 @@ function cms_get_awards(): array
         $stmt = $db->query('SELECT year, title, image FROM awards WHERE active = 1 ORDER BY sort_order ASC, id DESC');
         $awards = [];
         foreach ($stmt->fetchAll() ?: [] as $award) {
-            $award['image_description'] = cms_media_description($award['image'] ?? '');
+            // Several award logos are reused across multiple, unrelated awards (e.g. the
+            // same CSR-times.svg for three different years), so alt/description can't be
+            // keyed by image path - each award's own title/year is always unique instead.
+            $award['image_description'] = 'Award/recognition logo for ' . $award['title'] . ', received/recognized in ' . $award['year'] . '.';
             $award['image'] = cms_asset_url($award['image'] ?? null);
             $awards[] = $award;
         }
@@ -1200,16 +1203,70 @@ function cms_frontend_seo_buffer(string $html): string
         '~<link[^>]+rel=["\']canonical["\'][^>]*>\s*~is',
         '~<meta[^>]+property=["\']og:[^"\']+["\'][^>]*>\s*~is',
         '~<meta[^>]+name=["\']twitter:[^"\']+["\'][^>]*>\s*~is',
+        // Per-page favicon tags are inconsistent (some reference a generic placeholder
+        // icon, some have the wrong MIME type) - always replace with the correct one.
+        '~<link[^>]+rel=["\'](?:shortcut )?icon["\'][^>]*>\s*~is',
+        '~<link[^>]+rel=["\']apple-touch-icon["\'][^>]*>\s*~is',
     ];
 
     $html = preg_replace($patterns, '', $html);
 
+    // Root-relative works on production (hosted at the domain root) but not on a
+    // subdirectory install (e.g. local dev at /swades-foundation/) - derive the real
+    // base path from the running script instead of assuming either one.
+    $publicBase = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/');
+    $faviconUrl = $publicBase . '/assets/images/favicon.png';
+    $faviconTags = '<link rel="icon" type="image/png" href="' . htmlspecialchars($faviconUrl, ENT_QUOTES, 'UTF-8') . '">' . "\n"
+        . '<link rel="apple-touch-icon" href="' . htmlspecialchars($faviconUrl, ENT_QUOTES, 'UTF-8') . '">' . "\n";
+    $seoTags = $faviconTags . $seoTags;
+
     if (preg_match('~<meta[^>]+charset[^>]*>\s*~i', $html, $matches, PREG_OFFSET_CAPTURE)) {
         $insertPos = $matches[0][1] + strlen($matches[0][0]);
-        return substr($html, 0, $insertPos) . "\n" . $seoTags . substr($html, $insertPos);
+        $html = substr($html, 0, $insertPos) . "\n" . $seoTags . substr($html, $insertPos);
+    } else {
+        $html = preg_replace('~<head([^>]*)>~i', '<head$1>' . "\n" . $seoTags, $html, 1) ?: $html;
     }
 
-    return preg_replace('~<head([^>]*)>~i', '<head$1>' . "\n" . $seoTags, $html, 1) ?: $html;
+    return cms_inject_linkedin_insight_tag($html);
+}
+
+/**
+ * LinkedIn Insight Tag, installed sitewide via this shared buffer rather than
+ * per-page so every page carries it without hand-editing dozens of templates.
+ */
+function cms_inject_linkedin_insight_tag(string $html): string
+{
+    if (stripos($html, 'snap.licdn.com') !== false) {
+        return $html;
+    }
+
+    $snippet = <<<'HTML'
+<script type="text/javascript">
+_linkedin_partner_id = "9926556";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9926556&fmt=gif" />
+</noscript>
+HTML;
+
+    if (preg_match('~<body[^>]*>~i', $html, $matches, PREG_OFFSET_CAPTURE)) {
+        $insertPos = $matches[0][1] + strlen($matches[0][0]);
+        return substr($html, 0, $insertPos) . "\n" . $snippet . substr($html, $insertPos);
+    }
+
+    return $html . $snippet;
 }
 
 function cms_boot_frontend_seo(): void
